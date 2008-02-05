@@ -1,0 +1,2 @@
+2> fix bug with spaces in project dir path
+1> prepare mechanism for chosing set of libs/apps to be build
