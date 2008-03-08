@@ -1,4 +1,5 @@
-* dynamic libraries support
-* evnirnonment is prepared for dynamic library support
-* TEST_COMPONENT flag no longer is needed
-* reorganisation of code - more common code separated
+* fixed bug causing mtests to rebuild own-lib sources twice.
+* dynamic libraries support.
+* evnirnonment is prepared for dynamic library support.
+* TEST_COMPONENT flag no longer is needed.
+* reorganisation of code - more common code separated.
