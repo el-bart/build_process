@@ -1,2 +1,3 @@
-* internal code has been slightly reorganised
-* added support for non-existing testdir/
+* evnirnonment is prepared for dynamic library support
+* TEST_COMPONENT flag no longer is needed
+* reorganisation of code - more common code separated
