@@ -84,8 +84,8 @@ export CBIN_MTEST \
        CXXBIN_MTEST
 
 # dep files:
-CDEPS  :=$(CSRCS:.c=.d)     $(CSRCS_TEST:.c=.d)
-CXXDEPS:=$(CXXSRCS:.cpp=.d) $(CXXSRCS_TEST:.cpp=.d)
+CDEPS  :=$(ALL_SOURCES_C:.c=.d)
+CXXDEPS:=$(ALL_SOURCES_CXX:.cpp=.d)
 export CDEPS \
        CXXDEPS
 

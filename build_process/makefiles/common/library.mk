@@ -10,7 +10,7 @@ test:: $(TEST_PROGRAM_NAME)
 .PHONY: mtest
 mtest:: mk_gen_link
 mtest:: copy_testdata
-mtest:: $(CXXBIN_MTEST) $(CBIN_MTEST)
+mtest:: $(CXXBIN_MTEST) $(CBIN_MTEST) $(CXXOBJS_MTEST) $(COBJS_MTEST)
 
 
 $(TEST_PROGRAM_NAME):: $(CXXOBJS_TEST) $(COBJS_TEST) \

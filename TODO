@@ -1,3 +1,4 @@
+5> make lib/app always build in *test profile and than link with rest
 3> add support for dynamic libraries
 2> fix bug with spaces in project dir path
 1> prepare mechanism for chosing set of libs/apps to be build

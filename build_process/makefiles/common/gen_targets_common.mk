@@ -1,3 +1,6 @@
+
+.SUFFIXES:
+
 %.mt: %.mt.o $(CXXOBJS_NOMAIN) $(COBJS_NOMAIN)
 	@echo "LD    $@"
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(TEST_LINK_LIBS) $(LINK_LIBS)
