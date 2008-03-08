@@ -70,6 +70,7 @@ profile:
 	$(run-in-gen)
 
 .PHONY: test
+test: debug
 test: CXXFLAGS+=$(DBG_FLAGS)
 test: CFLAGS  +=$(DBG_FLAGS)
 test: LDFLAGS +=$(DBG_LDFLAGS)
@@ -78,6 +79,7 @@ test:
 	$(run-in-gen)
 
 .PHONY: mtest
+mtest: debug
 mtest: CXXFLAGS+=$(DBG_FLAGS)
 mtest: CFLAGS  +=$(DBG_FLAGS)
 mtest: LDFLAGS +=$(DBG_LDFLAGS)

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 
 #include "Lib1/Fooer.hpp"
 extern "C"
@@ -12,6 +13,7 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
+  assert( argc>0 ); // compiler warrning suppress: always true.
   cout<<argv[0]<<"\n";
   Fooer fooer;
   fooer.resetTo(10);

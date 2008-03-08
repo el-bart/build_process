@@ -44,6 +44,9 @@ endif # ALL_SOURCES_CXX
 export CSRCS_NOMAIN \
        CXXSRCS_NOMAIN
 
+CSRCS_MAIN  :=$(filter-out $(CSRCS_NOMAIN),   $(CSRCS)  )
+CXXSRCS_MAIN:=$(filter-out $(CXXSRCS_NOMAIN), $(CXXSRCS))
+
 # directories containing source files
 SOURCE_DIRS:=$(shell { for f in $(ALL_SOURCES) ; \
 					  do dirname $$f; done; } | sort | uniq )
@@ -64,6 +67,12 @@ COBJS_NOMAIN  :=$(CSRCS_NOMAIN:.c=.o)
 CXXOBJS_NOMAIN:=$(CXXSRCS_NOMAIN:.cpp=.o)
 export COBJS_NOMAIN \
        CXXOBJS_NOMAIN
+
+# obj files containing 'main()' (there should by just one BTW...)
+COBJS_MAIN  :=$(CSRCS_MAIN:.c=.o)
+CXXOBJS_MAIN:=$(CXXSRCS_MAIN:.cpp=.o)
+export COBJS_MAIN \
+       CXXOBJS_MAIN
 
 # test object files:
 COBJS_TEST  :=$(CSRCS_TEST:.c=.o)
