@@ -6,6 +6,7 @@ extern "C"
 #include "Lib1/old.h"
 };
 #include "Lib1/subdir/Write.hpp"
+#include "Lib3/call.hpp"
 #include "config.hpp"
 
 
@@ -31,6 +32,9 @@ int main(void)
 
   // use C-code
   cout<<"C: "<<fcc()<<endl;
+
+  // Lib3 - call
+  call();
 
   return 0;
 }

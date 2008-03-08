@@ -33,15 +33,19 @@ $(TEST_PROGRAM_NAME):: $(CXXOBJS_TEST) $(COBJS_TEST)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(TEST_LINK_LIBS) \
 		-l$(COMPONENT_NAME) $(LINK_LIBS)
 
+LIBRARY_OBJ_DEPS:=$(CXXOBJS_NOMAIN) $(COBJS_NOMAIN)
+LIBRARY_DEPS    :=$(LIBRARY_OBJ_DEPS) $(GEN_LIBS_DIR)/$(LIBRARY_NAME)
 ifeq (static,$(LIBRARY_TYPE))
-$(LIBRARY_NAME):: $(CXXOBJS_NOMAIN) $(COBJS_NOMAIN) \
-					$(GEN_LIBS_DIR)/$(LIBRARY_NAME)
+$(LIBRARY_NAME):: $(LIBRARY_DEPS)
 	@echo "AR    $@"
-	$(AR) -r $@ $(CXXOBJS_NOMAIN) $(COBJS_NOMAIN)
+	$(AR) -r $@ $(LIBRARY_OBJ_DEPS)
 endif
 ifeq (dynamic,$(LIBRARY_TYPE))
-# TODO
-$(error dynamic libraryies are not implemented yet)
+CXXFLAGS+=-fPIC
+LDFLAGS +=-shared -fPIC
+$(LIBRARY_NAME):: $(LIBRARY_DEPS)
+	@echo "LD    $@"
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $(LIBRARY_OBJ_DEPS) $(LINK_LIBS)
 endif
 
 # ensure there is proper link in gen
