@@ -1,3 +1,4 @@
-3> fix bug which prevents library to re-link when dependency changes.
-2> fix bug with spaces in project dir path.
-1> prepare mechanism for chosing set of libs/apps to be build.
+4  add doxygen comments support.
+3  fix bug which prevents library to re-link when dependency changes.
+2  fix bug with spaces in project dir path.
+1  prepare mechanism for chosing set of libs/apps to be build.
