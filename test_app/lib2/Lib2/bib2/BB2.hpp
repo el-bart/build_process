@@ -3,13 +3,23 @@
 
 /* public header */
 
+/** \brief BB2 class
+ */
 class BB2
 {
 public:
-    void resetTo(int v);
-    unsigned int size(void) const;
+  /** \brief reset to int
+   *  \param v value to set
+   */
+  void resetTo(int v);
+  /** \brief return size
+   *  \return size of tab
+   */
+  unsigned int size(void) const;
 
-    int a[5];
+  /** \brief table of ints
+   */
+  int a[5];
 };
 
 #endif

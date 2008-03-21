@@ -87,6 +87,11 @@ mtest: TARGET=mtest
 mtest:
 	$(run-in-gen)
 
+.PHONY: doc
+doc: TARGET=doc
+doc:
+	$(run-in-gen)
+
 .PHONY: clean
 clean:
 	@echo

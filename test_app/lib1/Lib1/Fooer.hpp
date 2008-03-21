@@ -5,9 +5,13 @@
 
 /* public header */
 
+/** \brief Fooer class description
+ */
 class Fooer: public Foo
 {
 public:
+    /** \brief reset object.
+     */
     void reset(void);
 };
 
