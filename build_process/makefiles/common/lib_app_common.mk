@@ -56,10 +56,12 @@ $(TEST_PROGRAM_NAME):: $(CXXOBJS_TEST) $(COBJS_TEST)
 		-l$(COMPONENT_NAME) $(LINK_LIBS)
 
 LIBRARY_OBJ_DEPS:=$(CXXOBJS_NOMAIN) $(COBJS_NOMAIN)
-LIBRARY_DEPS    :=$(LIBRARY_OBJ_DEPS) $(GEN_LIBS_DIR)/$(LIBRARY_NAME)
+LIBS_GEN_DEPS   :=$(wildcard $(DEP_LIBS_WC))
+LIBRARY_DEPS    :=$(LIBRARY_OBJ_DEPS) $(GEN_LIBS_DIR)/$(LIBRARY_NAME) $(LIBS_GEN_DEPS)
 ifeq (static,$(LIBRARY_TYPE))
 $(LIBRARY_NAME):: $(LIBRARY_DEPS)
 	@echo "AR    $@"
+	rm -f $@
 	$(AR) -r $@ $(LIBRARY_OBJ_DEPS)
 endif
 ifeq (dynamic,$(LIBRARY_TYPE))
@@ -72,5 +74,5 @@ endif
 
 # ensure there is proper link in gen
 $(GEN_LIBS_DIR)/$(LIBRARY_NAME):
-	ln -s "$(CURDIR)/$(LIBRARY_NAME)" "$(GEN_LIBS_DIR)"
+	ln -sf "$(CURDIR)/$(LIBRARY_NAME)" "$(GEN_LIBS_DIR)"
 

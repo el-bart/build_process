@@ -1,4 +1,5 @@
-* support for doxygen documentation (PROFILE=doc)
+* fixed bug with non-rebuilding libs/apps when dependency-lib has changed.
+* support for doxygen documentation (PROFILE=doc).
 * fixed bug causing mtests to rebuild own-lib sources twice.
 * dynamic libraries support.
 * evnirnonment is prepared for dynamic library support.

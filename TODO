@@ -1,3 +1,2 @@
-3  fix bug which prevents library to re-link when dependency changes.
+5
 2  fix bug with spaces in project dir path.
-1  prepare mechanism for chosing set of libs/apps to be build.

@@ -8,9 +8,9 @@ DOXYGEN=doxygen
 
 export CC \
        CXX \
-	   AR \
-	   RANLIB \
-	   LD \
-	   STRIP \
-	   DOXYGEN
+       AR \
+       RANLIB \
+       LD \
+       STRIP \
+       DOXYGEN
 
