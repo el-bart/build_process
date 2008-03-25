@@ -1,3 +1,4 @@
+* fixed bug with non-rebuilding test apps when inter-lib has changed.
 * fixed bug with non-rebuilding libs/apps when dependency-lib has changed.
 * support for doxygen documentation (PROFILE=doc).
 * fixed bug causing mtests to rebuild own-lib sources twice.
