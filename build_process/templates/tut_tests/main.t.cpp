@@ -24,6 +24,7 @@ test_runner_singleton runner;
 
 int main(const int argc, const char *const * const argv)
 {
+  int returnCode=255;
   try
   {
     tut::reporter reporter;
@@ -46,6 +47,8 @@ int main(const int argc, const char *const * const argv)
       default:
         assert(!"this code is never reached");
     } // switch(argc)
+
+    returnCode=(reporter.all_ok())?0:1;
   }
   catch(const std::exception &ex)
   {
@@ -58,6 +61,6 @@ int main(const int argc, const char *const * const argv)
     return 2;
   };
 
-  return 0;
+  return returnCode;
 }
 
