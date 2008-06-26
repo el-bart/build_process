@@ -55,7 +55,7 @@ do
   if test -x "$dynamic_compile"
   then
     DEPS_FILES="$DEPS_FILES $dynamic_compile"
-    COMPILE_FLAGS="$LINK_FLAGS $($dynamic_compile)"
+    COMPILE_FLAGS="$COMPILE_FLAGS $($dynamic_compile)"
   fi
 done
 

@@ -1,3 +1,4 @@
+* fixed bug with loosing compile-flags for dependencies.
 * added support for dynamicaly generated compilation and link flags.
 * automatic tests applicaiton(s) now return code dependent on test passing/failure.
 * fixed bug with non-rebuilding test apps when inter-lib has changed.
