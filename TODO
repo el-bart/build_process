@@ -1,2 +1,2 @@
-6
-2  fix bug with spaces in project dir path.
+6 add assert() macro wrapper for TUT so that it whould throw (asserts can be checked then as well).
+2 fix bug with spaces in project dir path.
