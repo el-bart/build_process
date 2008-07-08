@@ -1,2 +1,3 @@
+7 fix annoying problem when running build after dependencies have changed.
 6 add assert() macro wrapper for TUT so that it whould throw (asserts can be checked then as well).
 2 fix bug with spaces in project dir path.
