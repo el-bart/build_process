@@ -1,3 +1,4 @@
+* fixed typo in test group template.
 * added missing header to main.t.cpp.
 * fixed bug with loosing compile-flags for dependencies.
 * added support for dynamicaly generated compilation and link flags.
