@@ -1,4 +1,4 @@
-11 make flag for memory debugging (via electricfence).
+12 
 10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
 9 add choice for a toolchain to use during build as make parameter.
 8 add dependencies on whole testdata/ dir.

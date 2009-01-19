@@ -12,6 +12,8 @@ void print(const char *str)
 
 int main(void)
 {
+  char *c=new char[123];    // some memory to leak. :)
+  c[0]=0;
   print("wydruk 1");
   print("wydruk 2");
 

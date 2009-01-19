@@ -16,7 +16,8 @@ define run-in-gen
 	+$(MAKE) $(MFLAGS) -C "$(GEN_BASE_DIR)/$@/`basename $(CURDIR)`" \
 		-f "$(CURDIR)/Makefile" TARGET=$@ $(TARGET) \
 		STRIP_BINARY=$(STRIP_BINARY) \
-		DEP_LIBS_WC="$(DEP_LIBS_WC)"
+		DEP_LIBS_WC="$(DEP_LIBS_WC)" \
+		END_LINK_LIBS="$(END_LINK_LIBS)"
 endef
 
 # inside lib/app we can include any header (not only public ones)
@@ -32,6 +33,11 @@ all:
 	@echo 'error - no correct PROFILE has been specified'
 	@echo
 	@exit 1
+
+# memory debugging is on?
+ifneq (,$(MEM_DEBUG))
+END_LINK_LIBS+=-lefence
+endif
 
 # compiler flags
 PRF_FLAGS:=-pg -DNDEBUG -g3 -O3

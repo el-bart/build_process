@@ -1,3 +1,4 @@
+* added MEM_DEBUG falg - setting it to 1 causes to link with memory debug lib electric fence.
 * moved profiles into separate files.
 * fixed typo in test group template.
 * added missing header to main.t.cpp.
