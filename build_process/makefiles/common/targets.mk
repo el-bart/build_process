@@ -50,4 +50,4 @@ DBG_LDFLAGS:=
 OPT_LDFLAGS:=
 
 # include profiles from extrnal files
-include $(wildcard $(MAKEFILES_PROFILES_BASE_DIR)/*)
+include $(wildcard $(MAKEFILES_PROFILES_BASE_DIR)/*.mk)
