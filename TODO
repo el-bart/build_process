@@ -1,4 +1,4 @@
-13 
+13 add template wrapper for try-catch when exception is expected.
 12 make gen/ profile dirs have flags information (TC, MEM_DEBUG, etc...).
 10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
 8 add dependencies on whole testdata/ dir.
