@@ -1,3 +1,4 @@
+* added .out surfix to application naems, to avoid problem when app has the same name as its source direcotry.
 * annoing message when dependecies have chenged is now removed - deps are updated automatically.
 * toolchain selection is now possible via TC.
 * added MEM_DEBUG falg - setting it to 1 causes to link with memory debug lib electric fence.
