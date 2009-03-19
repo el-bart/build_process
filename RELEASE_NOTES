@@ -1,3 +1,4 @@
+* tests group's template has been simplified.
 * added .out surfix to application naems, to avoid problem when app has the same name as its source direcotry.
 * annoing message when dependecies have chenged is now removed - deps are updated automatically.
 * toolchain selection is now possible via TC.
