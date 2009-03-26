@@ -11,7 +11,7 @@
 
 namespace
 {
-struct SomeTestClass
+struct TestClass
 {
   bool isZero(int v) const
   {
@@ -19,7 +19,6 @@ struct SomeTestClass
   }
 };
 
-typedef SomeTestClass TestClass;
 typedef tut::test_group<TestClass> factory;
 typedef factory::object testObj;
 
