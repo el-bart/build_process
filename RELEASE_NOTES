@@ -1,3 +1,4 @@
+* added reviesd BSD as a second license.
 * fixed bug with missing symbols for applications
 * dynamic link/compile + links in features directory.
 * tests group's template has been simplified.
