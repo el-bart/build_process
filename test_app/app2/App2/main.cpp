@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "config.hpp"
+#include "Sth.hpp"
 
 
 using namespace std;
@@ -17,6 +18,6 @@ int main(void)
   print("wydruk 1");
   print("wydruk 2");
 
-  return 0;
+  return someFunction();
 };
 
