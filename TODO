@@ -1,3 +1,7 @@
+20
+19 add doc file with description to project too (not only on web).
+18 scripts for dynamic compile/link flags should take projects root as a parameter.
+17 make include dir with links instead of '/* public header */' voodoo.
 16 add warnings when config's standard variables are not set.
 15 set order of -I so that component's dir will be before public includes (this will solve problem with unmarking header as public after build)
 14 add common dependencies file (for all profiles).
