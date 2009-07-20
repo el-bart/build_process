@@ -1,4 +1,5 @@
-21
+22
+21 add -rdynamic for compilation in debug* profiles (for backtraceability).
 20 consider support for bcov integration with build process.
 19 add doc file with description to project too (not only on web).
 18 scripts for dynamic compile/link flags should take projects root as a parameter.
