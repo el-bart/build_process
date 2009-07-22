@@ -1,7 +1,6 @@
 22
 20 consider support for bcov integration with build process.
 19 add doc file with description to project too (not only on web).
-17 make include dir with links instead of '/* public header */' voodoo.
 15 set order of -I so that component's dir will be before public includes (this will solve problem with unmarking header as public after build)
 14 add common dependencies file (for all profiles).
 13 add template wrapper for try-catch when exception is expected.
