@@ -8,7 +8,7 @@ define run-in-gen
 		mkdir -p $(SOURCE_DIRS)
 	# make includes/ dir structure for global includes files
 	mkdir -p $(GEN_INCLUDES_DIR)
-	cp -p --parent `find . -type f -iname '*.h*' \
+	cp -pu --parent `find . -type f -iname '*.h*' \
 		-exec grep -l '^/\* public header \*/$$' {} \; | grep -v '/.svn'` \
 		$(GEN_INCLUDES_DIR) \
 		2>/dev/null ; true

@@ -1,3 +1,5 @@
+* copying ublic headers has been improved.
+* -I order has been preserved - other components won't be affected anyway.
 * all dependency files are now optional - if you don't use them, you don't need them to exist.
 * added 'common' dependency file, that is included for all profiles.
 * testdata directory is now with own dependencies - anything that changes (add/modified) is also updated in gen/.
