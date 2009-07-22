@@ -40,9 +40,9 @@ END_LINK_LIBS+=-lefence
 endif
 
 # compiler flags
-PRF_FLAGS:=-pg -DNDEBUG -g3 -O3
-DBG_FLAGS:=-g3
 OPT_FLAGS:=-O3 -DNDEBUG -Werror
+DBG_FLAGS:=-g3 -rdynamic
+PRF_FLAGS:=$(DBG_FLAGS) $(OPT_FLAGS) -pg
 
 # linker flags
 PRF_LDFLAGS:=-pg
