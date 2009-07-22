@@ -1,6 +1,5 @@
 22
 20 consider support for bcov integration with build process.
 19 add doc file with description to project too (not only on web).
-13 add template wrapper for try-catch when exception is expected.
 10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
 2 fix bug with spaces in project dir path.
