@@ -1,9 +1,9 @@
 # makro for common calls
 define run-in-gen
 	@echo
-	@echo "##### build $(COMPONENT_NAME) in $@"
+	@echo "##### build $(COMPONENT_NAME) in $@_$(TC)_$(MEM_CHECK)"
 	# make gen/ dir structure for source files
-	GEN_NOW="$(GEN_BASE_DIR)/$@/`basename $(CURDIR)`" && \
+	GEN_NOW="$(GEN_BASE_DIR)/$@_$(TC)_$(MEM_CHECK)/`basename $(CURDIR)`" && \
 		mkdir -p "$$GEN_NOW" && cd "$$GEN_NOW" && \
 		mkdir -p $(SOURCE_DIRS)
 	# make includes/ dir structure for global includes files
@@ -13,7 +13,7 @@ define run-in-gen
 		$(GEN_INCLUDES_DIR) \
 		2>/dev/null ; true
 	mkdir -p "$(GEN_LIBS_DIR)"
-	+$(MAKE) $(MFLAGS) -C "$(GEN_BASE_DIR)/$@/`basename $(CURDIR)`" \
+	+$(MAKE) $(MFLAGS) -C "$(GEN_BASE_DIR)/$@_$(TC)_$(MEM_CHECK)/`basename $(CURDIR)`" \
 		-f "$(CURDIR)/Makefile" TARGET=$@ $(TARGET) \
 		STRIP_BINARY=$(STRIP_BINARY) \
 		DEP_LIBS_WC="$(DEP_LIBS_WC)" \
