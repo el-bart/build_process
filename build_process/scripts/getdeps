@@ -20,13 +20,15 @@ shift
 # finder <component>
 function finder
 {
-  test -f "$1/$DEPS_PATH" || exit 0
-  THIS_DEPS="$(cat "$1/$DEPS_PATH")"
-  echo -n "$1/$DEPS_PATH "
-  for dep in $THIS_DEPS
+  for src in "$1/common" "$1/$DEPS_PATH"
   do
-    finder $dep
-  done
+    test -f "$src" || continue
+    echo -n "$src "            # mark dependency from this file
+    for dep in $(cat "$src")
+    do
+      finder $dep              # recurse with dependencies
+    done # for deps
+  done # for deps src files
 }
 
 # short name for component - it will be used many times
@@ -74,7 +76,7 @@ done
 LOCAL_LIBS=""
 for el in $DEPS
 do
-  test -f $el/$DEPS_PATH && LOCAL_LIBS="$LOCAL_LIBS $el"
+  test -d "$el" && LOCAL_LIBS="$LOCAL_LIBS $el"
 done
 
 # convert deps to libs and libs_deps (libraries

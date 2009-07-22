@@ -1,3 +1,5 @@
+* all dependency files are now optional - if you don't use them, you don't need them to exist.
+* added 'common' dependency file, that is included for all profiles.
 * testdata directory is now with own dependencies - anything that changes (add/modified) is also updated in gen/.
 * change '/* public header */' to links in separete directory has been rejected due to problems with keeping two directories structures in sync in order to make it work.
 * separate gen/* directories for different build options for profiles (np: toolchain).
