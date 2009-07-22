@@ -9,5 +9,4 @@
 12 make gen/ profile dirs have flags information (TC, MEM_DEBUG, etc...).
 10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
 8 add dependencies on whole testdata/ dir.
-6 add assert() macro wrapper for TUT so that it whould throw (asserts can be checked then as well).
 2 fix bug with spaces in project dir path.
