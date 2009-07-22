@@ -5,7 +5,6 @@
 15 set order of -I so that component's dir will be before public includes (this will solve problem with unmarking header as public after build)
 14 add common dependencies file (for all profiles).
 13 add template wrapper for try-catch when exception is expected.
-12 make gen/ profile dirs have flags information (TC, MEM_DEBUG, etc...).
 10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
 8 add dependencies on whole testdata/ dir.
 2 fix bug with spaces in project dir path.

@@ -1,3 +1,4 @@
+* separate gen/* directories for different build options for profiles (np: toolchain).
 * build_process tests now if proper variables are set (either via config or cmd-line parameter).
 * added -rdynamic when building in debug (this allows backtrace reading in runtime).
 * added reviesd BSD as a second license.
