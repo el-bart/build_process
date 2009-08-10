@@ -1,3 +1,7 @@
+-- v1.0.1 --
+* fixed bug with common dependencies/libs-links for different TC/MEM_CHECK settings.
+
+-- v1.0.0 --
 * copying ublic headers has been improved.
 * -I order has been preserved - other components won't be affected anyway.
 * all dependency files are now optional - if you don't use them, you don't need them to exist.

@@ -39,5 +39,5 @@ include $(wildcard $(GEN_COMPONENTS_DEPS_DIR)/*.mk)
 # clean specific profile
 .PHONY: clean
 clean:
-	rm -rfv $(GEN_BASE_DIR)/$(PROFILE)
+	rm -rfv $(GEN_BASE_DIR)/$(PROFILE)_$(TC)_$(MEM_CHECK)
 
