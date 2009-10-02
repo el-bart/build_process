@@ -2,6 +2,6 @@
 #error "flag SOME_LIB2_SPECIAL_FLAG not set - component dynamic dependencies are wrongly read"
 #endif
 
-#ifdef SOME_LIB2_SPECIAL_FLAG_FOR_TESTS_ONLY
-#error "flag SOME_LIB2_SPECIAL_FLAG_FOR_TESTS_ONLY has been set outside of the tests"
-#endif
+//#ifdef SOME_LIB2_SPECIAL_FLAG_FOR_MTESTS_ONLY
+//#error "flag SOME_LIB2_SPECIAL_FLAG_FOR_MTESTS_ONLY has been set outside of the mtests"
+//#endif
