@@ -39,5 +39,8 @@ ifneq (,$(MEM_DEBUG))
 END_LINK_LIBS+=-lefence
 endif
 
+# include toolchain-specific flags
+include $(MAKEFILES_TOOLCHAINS_BASE_DIR)/$(TC)-flags.mk
+
 # include profiles from extrnal files
 include $(wildcard $(MAKEFILES_PROFILES_BASE_DIR)/*.mk)
