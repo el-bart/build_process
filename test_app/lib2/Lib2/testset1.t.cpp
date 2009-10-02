@@ -6,6 +6,10 @@
  */
 #include <tut.h>
 
+#ifndef SOME_LIB2_SPECIAL_FLAG_FOR_TESTS_ONLY
+#error "flag SOME_LIB2_SPECIAL_FLAG_FOR_TESTS_ONLY has not been set for tests"
+#endif
+
 namespace tut
 {
 

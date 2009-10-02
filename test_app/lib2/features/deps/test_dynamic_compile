@@ -1,1 +1,2 @@
-debug_dynamic_compile
+#!/bin/sh
+echo -DSOME_LIB2_SPECIAL_FLAG_FOR_TESTS_ONLY

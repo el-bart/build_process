@@ -20,7 +20,9 @@ shift
 # finder <component>
 function finder
 {
-  for src in "$1/common" "$1/$DEPS_PATH"
+  local BASE_PATH_DIR="`dirname "$DEPS_PATH"`"
+  for src in "$1/$BASE_PATH_DIR/common" \
+             "$1/$DEPS_PATH"
   do
     test -f "$src" || continue
     echo -n "$src "            # mark dependency from this file
