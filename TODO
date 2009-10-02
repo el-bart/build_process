@@ -1,4 +1,5 @@
-23
+24
+23 fix AVR test application automatic tests - what can be do with it?!
 20 consider support for bcov integration with build process.
 19 add doc file with description to project too (not only on web).
 10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.

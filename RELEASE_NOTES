@@ -1,4 +1,5 @@
 -- v1.1.0 --
+* test application for AVRs added.
 * out-of-the-box support for gcc toolchain for AVR uCs.
 * inter-component dependencies and falgs checker has been rewritten from scratch.
 * no features/deps/* file are needed now if component depends on nothing.
