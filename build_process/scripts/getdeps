@@ -80,14 +80,13 @@ echo $ROOT
 done
 
 # convert deps to libs and libs_deps (libraries this component depends on)
-LOCAL_LIBS="$DEPS"
 if [ "`sed 's:^ *$::' <<<"$DEPS"`" ]
 then
   LINK_LIBS="`sed -e 's:^ *:-l:' -e 's: \+$::' -e 's: \+: -l:g'<<<"$DEPS"`"
   DEP_LIBS_WC="`sed -e "s:^ *: :" \
                     -e "s: *$: :" \
                     -e "s: \+\([^ ]\+\): $GEN_LIBS_PATH/lib\1*:g" \
-						<<<"$LOCAL_LIBS"`"
+						<<<"$DEPS"`"
 fi
 
 # write to file
@@ -98,7 +97,7 @@ $C:: DEP_LIBS_WC:=$DEP_LIBS_WC
 $C:: CXXFLAGS+=$COMPILE_FLAGS
 $C:: CFLAGS+=$COMPILE_FLAGS
 ifeq (,\$(WITHOUT_DEPS))
-$C::$LOCAL_LIBS
+$C::$DEPS
 else
 $C::
 endif
