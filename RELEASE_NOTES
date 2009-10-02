@@ -1,4 +1,5 @@
 -- v1.1.0 --
+* out-of-the-box support for gcc toolchain for AVR uCs.
 * inter-component dependencies and falgs checker has been rewritten from scratch.
 * no features/deps/* file are needed now if component depends on nothing.
 * features/deps/common_dynamic_compile and features/deps/common_dynamic_link files are now in use.
