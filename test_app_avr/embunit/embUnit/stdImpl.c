@@ -32,6 +32,8 @@
  *
  * $Id: stdImpl.c,v 1.3 2004/02/10 16:15:25 arms22 Exp $
  */
+#include <stdint.h>
+
 #include "stdImpl.h"
 
 char* stdimpl_strcpy(char *dst, const char *src)
@@ -108,7 +110,7 @@ int stdimpl_strcmp(const char *s1, const char *s2)
 	return c1 - c2;
 }
 
-static char* _xtoa(unsigned long v,char *string, int r, int is_neg)
+static char* _xtoa(uint32_t v,char *string, int r, int is_neg)
 {
 	char *start = string;
 	char buf[33],*p;
@@ -135,7 +137,7 @@ static char* _xtoa(unsigned long v,char *string, int r, int is_neg)
 char* stdimpl_itoa(int v,char *string,int r)
 {
     if ((r == 10) && (v < 0)) {
-		return _xtoa((unsigned long)(-v), string, r, 1);
+		return _xtoa((uint32_t)(-v), string, r, 1);
 	}
-	return _xtoa((unsigned long)(v), string, r, 0);
+	return _xtoa((uint32_t)(v), string, r, 0);
 }

@@ -45,16 +45,16 @@ void assertImplementationInt(int expected,int actual, long line, const char *fil
 void assertImplementationCStr(const char *expected,const char *actual, long line, const char *file);
 
 #define TEST_ASSERT_EQUAL_STRING(expected,actual)\
-	if (expected && actual && (stdimpl_strcmp(expected,actual)==0)) {} else {assertImplementationCStr(expected,actual,__LINE__,__FILE__);return;}
+	if ((expected) && (actual) && (stdimpl_strcmp((expected),(actual))==0)) {} else {assertImplementationCStr((expected),(actual),__LINE__,__FILE__);return;}
 
 #define TEST_ASSERT_EQUAL_INT(expected,actual)\
-	if (expected == actual) {} else {assertImplementationInt(expected,actual,__LINE__,__FILE__);return;}
+	if ((expected) == (actual)) {} else {assertImplementationInt((expected),(actual),__LINE__,__FILE__);return;}
 
 #define TEST_ASSERT_NULL(pointer)\
-	TEST_ASSERT_MESSAGE(pointer == NULL,#pointer " was not null.")
+	TEST_ASSERT_MESSAGE((pointer) == NULL,#pointer " was not null.")
 
 #define TEST_ASSERT_NOT_NULL(pointer)\
-	TEST_ASSERT_MESSAGE(pointer != NULL,#pointer " was null.")
+	TEST_ASSERT_MESSAGE((pointer) != NULL,#pointer " was null.")
 
 #define TEST_ASSERT_MESSAGE(condition, message)\
 	if (condition) {} else {TEST_FAIL(message);}
