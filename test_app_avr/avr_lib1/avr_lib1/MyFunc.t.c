@@ -15,15 +15,13 @@ static void tearDown(void)
 static void testLog10(void)
 {
   const int r=myFunc(10);
-  const int e=log(10)+1;
-  TEST_ASSERT_EQUAL_INT(r, e);
+  TEST_ASSERT_EQUAL_INT(r, 3);
 }
 
 static void testLog1(void)
 {
   const int r=myFunc(1);
-  const int e=log(1)+1;
-  TEST_ASSERT_EQUAL_INT(r, e);
+  TEST_ASSERT_EQUAL_INT(r, 1);
 }
 
 TestRef MyFunc_testsuit(void)
