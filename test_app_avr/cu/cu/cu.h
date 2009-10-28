@@ -98,8 +98,6 @@ extern "C" {
 /***** PUBLIC API END *****/
 
 
-#include <unistd.h>
-
 #define CU_MAX_NAME_LENGTH 30
 
 typedef void (*cu_test_func_t)(void);
