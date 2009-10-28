@@ -48,3 +48,4 @@
 #include <embUnit/HelperMacro.h>
 
 #endif/*__EMBUNIT_H__*/
+/* public header */

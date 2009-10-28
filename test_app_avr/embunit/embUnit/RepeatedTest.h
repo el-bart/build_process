@@ -54,3 +54,4 @@ extern const TestImplement RepeatedTestImplement;
 	}
 
 #endif/*__REPEATEDTEST_H__*/
+/* public header */

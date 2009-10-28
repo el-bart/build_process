@@ -57,3 +57,4 @@
 	static const RepeatedTest	repeater = new_RepeatedTest(test,tmrp)
 
 #endif/*__HELPERMACRO_H__*/
+/* public header */

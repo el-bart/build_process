@@ -70,3 +70,4 @@ void assertImplementationCStr(const char *expected,const char *actual, long line
 #endif
 
 #endif/*__ASSERTIMPL_H__*/
+/* public header */

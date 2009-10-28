@@ -46,3 +46,4 @@
 	#define ASSERT_STRING_BUFFER_MAX	64
 
 #endif/*__CONFIG_H__*/
+/* public header */

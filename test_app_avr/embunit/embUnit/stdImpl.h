@@ -55,3 +55,4 @@ char* stdimpl_itoa(int v,char *string,int r);
 #endif
 
 #endif/*__STDIMPL_H__*/
+/* public header */

@@ -44,15 +44,20 @@ static Test* root_;
 
 static void TestRunner_startTest(TestListner* self,Test* test)
 {
+    self=0; // supress warning
+    test=0; // ...
 	stdimpl_print(".");
 }
 
 static void TestRunner_endTest(TestListner* self,Test* test)
 {
+    self=0; // supress warning
+    test=0; // ...
 }
 
 static void TestRunner_addFailure(TestListner* self,Test* test,char* msg,int line,char* file)
 {
+    self=0; // supress warning
 	stdimpl_print("\n");
 	stdimpl_print(Test_name(root_));
 	stdimpl_print(".");

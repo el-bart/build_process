@@ -67,6 +67,7 @@ void TestCase_run(TestCase* self,TestResult* result)
 
 int TestCase_countTestCases(TestCase* self)
 {
+    self=0;     // ignore compiler warning
 	return 1;
 }
 

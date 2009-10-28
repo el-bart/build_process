@@ -60,3 +60,4 @@ struct __TestListner {
 #define TestListner_addFailure(s,t,m,l,f)	((TestListner*)s)->isa->addFailure(s,t,m,l,f)
 
 #endif/*__TESTLISTENER_H__*/
+/* public header */

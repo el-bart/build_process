@@ -63,3 +63,4 @@ struct __Test {
 #define Test_countTestCases(s)	((Test*)s)->isa->countTestCases(s)
 
 #endif/*__TEST_H__*/
+/* public header */

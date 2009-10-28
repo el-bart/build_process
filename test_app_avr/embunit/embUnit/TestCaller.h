@@ -74,3 +74,4 @@ extern const TestImplement TestCallerImplement;
 	}
 
 #endif/*__TESTCALLER_H__*/
+/* public header */

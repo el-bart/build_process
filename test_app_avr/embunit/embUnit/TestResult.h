@@ -68,3 +68,4 @@ void TestResult_addFailure(TestResult* self,Test* test,const char* msg,int line,
 #endif
 
 #endif/*__TESTRESULT_H__*/
+/* public header */

@@ -56,3 +56,4 @@ extern const TestImplement TestSuiteImplement;
 	}
 
 #endif/*__TESTSUITE_H__*/
+/* public header */

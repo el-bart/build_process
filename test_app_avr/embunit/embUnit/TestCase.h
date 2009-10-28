@@ -58,3 +58,4 @@ extern const TestImplement TestCaseImplement;
 	}
 
 #endif/*__TESTCASE_H__*/
+/* public header */

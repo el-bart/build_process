@@ -48,3 +48,4 @@ void TestRunner_end(void);
 #endif
 
 #endif/*__TESTRUNNER_H__*/
+/* public header */
