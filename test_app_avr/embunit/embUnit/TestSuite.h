@@ -40,7 +40,7 @@ typedef struct __TestSuite*	TestSuiteRef;/*downward compatible*/
 
 struct __TestSuite {
 	TestImplement* isa;
-	char *name;
+	const char *name;
 	int numberOfTests;
 	Test** tests;
 };

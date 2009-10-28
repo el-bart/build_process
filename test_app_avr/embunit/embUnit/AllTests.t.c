@@ -9,7 +9,6 @@ extern TestRef RepeatedTestTest_tests(void);
 
 int main(void)
 {
-#ifndef SKIP_EMBUNIT_SELF_TESTS
 	TestRunner_start();
 		TestRunner_runTest(assertTest_tests());
 		TestRunner_runTest(stdImplTest_tests());
@@ -18,6 +17,5 @@ int main(void)
 		TestRunner_runTest(TestResultTest_tests());
 		TestRunner_runTest(RepeatedTestTest_tests());
 	TestRunner_end();
-#endif
 	return 0;
 }

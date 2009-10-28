@@ -1,4 +1,3 @@
-#ifndef SKIP_EMBUNIT_SELF_TESTS
 #include <embUnit/embUnit.h>
 #include "embUnit/MockTestCase.t.h"
 
@@ -65,4 +64,3 @@ TestRef TestCaseTest_tests(void)
 
 	return (TestRef)&TestCaseTest;
 }
-#endif

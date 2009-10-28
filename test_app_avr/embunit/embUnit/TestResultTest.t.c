@@ -1,4 +1,3 @@
-#ifndef SKIP_EMBUNIT_SELF_TESTS
 #include <embUnit/embUnit.h>
 
 static void setUp(void)
@@ -59,4 +58,3 @@ TestRef TestResultTest_tests(void)
 
 	return (TestRef)&TestResultTest;
 }
-#endif

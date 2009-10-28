@@ -35,7 +35,7 @@
 #include "Test.h"
 #include "RepeatedTest.h"
 
-char* RepeatedTest_name(RepeatedTest* self)
+const char* RepeatedTest_name(RepeatedTest* self)
 {
 	return Test_name(self->test);
 }

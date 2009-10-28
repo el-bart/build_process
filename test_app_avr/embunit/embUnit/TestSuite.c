@@ -35,7 +35,7 @@
 #include "Test.h"
 #include "TestSuite.h"
 
-char* TestSuite_name(TestSuite* self)
+const char* TestSuite_name(TestSuite* self)
 {
 	return self->name;
 }
