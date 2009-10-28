@@ -1,3 +1,4 @@
+#ifndef SKIP_EMBUNIT_SELF_TESTS
 #include <embUnit/embUnit.h>
 
 static void setUp(void)
@@ -101,3 +102,4 @@ TestRef assertTest_tests(void)
 
 	return (TestRef)&AssertTest;
 }
+#endif

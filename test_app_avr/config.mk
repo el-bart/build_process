@@ -11,3 +11,10 @@ export PROFILE=test
 
 # set default toolchain
 export TC=avr
+
+ifeq ($(TC),avr)
+# choose uC type
+FLAGS   := -mmcu=avr5 -DSKIP_EMBUNIT_SELF_TESTS
+CFLAGS  +=$(FLAGS)
+CXXFLAGS+=$(FLAGS)
+endif

@@ -1,3 +1,4 @@
+#ifndef SKIP_EMBUNIT_SELF_TESTS
 #include <embUnit/embUnit.h>
 
 static void setUp(void)
@@ -112,3 +113,4 @@ TestRef stdImplTest_tests(void)
 
 	return (TestRef)&StdImplTest;
 }
+#endif
