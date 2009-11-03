@@ -1,8 +1,9 @@
 2  fix bug with spaces in project dir path.
 10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
 19 add doc file with description to project too (not only on web).
-20 consider support for bcov integration with build process.
+20 consider support for bcov (gcov?) integration with build process.
 24 switch from copying .hpp files to linking (this prevents some strange bug that sometime appears).
 25 rename project ot 'build_system' which is more adequate.
 26 find some WORKING unit test environment to be used with AVR toolchain.
-27
+27 implement real split backend functionality.
+28
