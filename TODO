@@ -4,7 +4,6 @@
 20 consider support for bcov (gcov?) integration with build process.
 24 switch from copying .hpp files to linking (this prevents some strange bug that sometime appears).
 25 rename project ot 'build_system' which is more adequate.
-26 find some WORKING unit test environment to be used with AVR toolchain.
 27 implement real split backend functionality.
 28 embedded test suit should NOT be part of build system.
 29
