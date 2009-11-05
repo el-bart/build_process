@@ -6,4 +6,5 @@
 25 rename project ot 'build_system' which is more adequate.
 26 find some WORKING unit test environment to be used with AVR toolchain.
 27 implement real split backend functionality.
-28
+28 embedded test suit should NOT be part of build system.
+29
