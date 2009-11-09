@@ -1,5 +1,7 @@
+#include <pthread.h>
+
 int fcc(void)
 {
-  return -1;
+  return pthread_self();
 };
 

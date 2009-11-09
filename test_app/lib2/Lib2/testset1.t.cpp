@@ -6,6 +6,11 @@
  */
 #include <tut.h>
 
+extern "C"
+{
+#include "Lib1/old.h"
+}
+
 namespace tut
 {
 
@@ -44,6 +49,13 @@ void testObj::test<1>(void)
 {
   ensure(  isZero(0) );
   ensure( !isZero(2) );
+}
+
+template<>
+template<>
+void testObj::test<2>(void)
+{
+  ensure("oops", fcc()>=0);
 }
 
 } // namespace tut
