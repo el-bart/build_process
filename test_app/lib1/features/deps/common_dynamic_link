@@ -1,2 +1,2 @@
 #!/bin/sh
-echo -L/common/dynamic/link/from/lib1
+echo -L/common/dynamic/link/from/lib1 -lpthread
