@@ -6,4 +6,5 @@
 25 rename project ot 'build_system' which is more adequate.
 27 implement real split backend functionality.
 28 embedded test suit should NOT be part of build system.
-29
+29 simplify template for tests - test class is in unnamed namespace, therefor no prefixes are needed (TestClass is enought).
+30
