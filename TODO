@@ -10,3 +10,4 @@
 30 add parameter that forces component to rebuild
 31 add support for ccache.
 32 add support for distcc.
+33 add support for force-link option.
