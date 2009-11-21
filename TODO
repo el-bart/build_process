@@ -11,3 +11,5 @@
 31 add support for ccache.
 32 add support for distcc.
 33 add support for force-link option.
+34 make PROFILE=doc build stop when there are errors in comments.
+35
