@@ -14,4 +14,5 @@
 34 make PROFILE=doc build stop when there are errors in comments.
 35 think how to implement components in subdirectories (i.e. input/inputImpl1 with namespaces Input::InputImpl1).
 36 add support for easy adding auto-tools-based external components (buuld in gen, then export includes and libs).
-37
+37 in bigger projects (i.e. dedal) there is WAY to big flag set for compilation - think what can be done about it.
+38
