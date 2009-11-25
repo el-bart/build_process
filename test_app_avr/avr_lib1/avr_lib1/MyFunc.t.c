@@ -1,35 +1,23 @@
-#include "embUnit/embUnit.h"
-
 #include "avr_lib1/MyFunc.h"
 
-static void setUp(void)
+static int testMyFunc10(void)
 {
+  if( myFunc(10)!=3 )
+    return 1;
+  return 0;
 }
 
-static void tearDown(void)
+static int testMyFunc1(void)
 {
+  if( myFunc(1)!=1 )
+    return 1;
+  return 0;
 }
 
-static void testMyFunc10(void)
+int MyFunc_testsuit(void)
 {
-  const int r=myFunc(10);
-  TEST_ASSERT_EQUAL_INT(r, 3);
-}
-
-static void testMyFunc1(void)
-{
-  const int r=myFunc(1);
-  TEST_ASSERT_EQUAL_INT(r, 1);
-}
-
-TestRef MyFunc_testsuit(void)
-{
-  EMB_UNIT_TESTFIXTURES(fixtures)
-  {
-    new_TestFixture("testMyFunc10", testMyFunc10),
-    new_TestFixture("testMyFunc1",  testMyFunc1 ),
-  };
-  EMB_UNIT_TESTCALLER(caller, "MyFunc", setUp, tearDown, fixtures);
-
-  return (TestRef)&caller;
+  int res=0;
+  res+=testMyFunc10();
+  res+=testMyFunc1();
+  return res;
 }
