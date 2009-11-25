@@ -1,7 +1,5 @@
 # TODO: TEST_LINK_LIBS looks like it should be removed (not used)
 
-PUBLIC_HEADERS:=public_headers.$(PROFILE)
-
 .PHONY: test
 test:: copy_testdata
 test:: $(TEST_PROGRAM_NAME)
