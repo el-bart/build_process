@@ -15,5 +15,5 @@
 37 in bigger projects (i.e. dedal) there is WAY to big flag set for compilation - think what can be done about it.
 38 update template for features.
 39 add renaming MEM_DEBUG flag in the code, to use meaninful names.
-40 optimize headers updates (not to do this every time).
-41
+41 check how to put 'public_headers.$(PROFILE)' in a proper directory.
+42
