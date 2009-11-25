@@ -6,13 +6,11 @@ define run-in-gen
 	GEN_NOW="$(GEN_BASE_DIR)/$@_$(TC)_$(MEM_CHECK)/`basename $(CURDIR)`" && \
 		mkdir -p "$$GEN_NOW" && cd "$$GEN_NOW" && \
 		mkdir -p $(SOURCE_DIRS)
-	# make includes/ dir structure for global includes files
-	mkdir -p $(GEN_INCLUDES_DIR)
-	cp -pu --parent `find . -type f -iname '*.h*' \
-		-exec grep -l '^/\* public header \*/$$' {} \; | grep -v '/.svn'` \
-		$(GEN_INCLUDES_DIR) \
-		2>/dev/null ; true
+	# make includes/ dir structure for global (public) include files
+	$(SCRIPTS_BASE_DIR)/link_public_headers "$(GEN_INCLUDES_DIR)"
+	# make gen dir
 	mkdir -p "$(GEN_LIBS_DIR)"
+	# run
 	+$(MAKE) $(MFLAGS) -C "$(GEN_BASE_DIR)/$@_$(TC)_$(MEM_CHECK)/`basename $(CURDIR)`" \
 		-f "$(CURDIR)/Makefile" TARGET=$@ $(TARGET) \
 		STRIP_BINARY=$(STRIP_BINARY) \

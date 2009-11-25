@@ -2,7 +2,6 @@
 10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
 19 add doc file with description to project too (not only on web).
 20 consider support for bcov (gcov?) integration with build process.
-24 switch from copying .hpp files to linking (this prevents some strange bug that sometime appears).
 25 rename project ot 'build_system' which is more adequate.
 27 implement real split backend functionality.
 29 simplify template for tests - test class is in unnamed namespace, therefor no prefixes are needed (TestClass is enought).
@@ -15,5 +14,6 @@
 36 add support for easy adding auto-tools-based external components (buuld in gen, then export includes and libs).
 37 in bigger projects (i.e. dedal) there is WAY to big flag set for compilation - think what can be done about it.
 38 update template for features.
-39 add renaming MEM_DEBUG flag in the code, to use meaninful names
-40
+39 add renaming MEM_DEBUG flag in the code, to use meaninful names.
+40 optimize headers updates (not to do this every time).
+41

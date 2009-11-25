@@ -1,4 +1,6 @@
 -- v1.1.0 --
+* gen directory now has links to header files instead of copyies.
+* removing public headers and unmariking header to non-public again are now supported.
 * added paraller build to bzr_build.conf for multicore computers.
 * fixed bug with library relinking when coponent had common prefix with other library name.
 * test application for AVRs added.
