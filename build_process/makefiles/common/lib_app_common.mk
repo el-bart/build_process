@@ -2,10 +2,12 @@
 
 .PHONY: test
 test:: copy_testdata
+test:: public_headers
 test:: $(TEST_PROGRAM_NAME)
 
 .PHONY: mtest
 mtest:: copy_testdata
+mtest:: public_headers
 mtest:: $(CXXBIN_MTEST) $(CBIN_MTEST) \
 		$(CXXOBJS_MTEST) $(COBJS_MTEST)
 

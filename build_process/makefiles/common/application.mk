@@ -1,5 +1,6 @@
 .PHONY: all
 all:: $(APPLICATION_NAME)
+# note: public_headers are NOT necessary for applications
 
 include $(MAKEFILES_COMMON_BASE_DIR)/lib_app_common.mk
 

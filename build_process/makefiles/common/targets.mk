@@ -6,8 +6,6 @@ define run-in-gen
 	GEN_NOW="$(GEN_BASE_DIR)/$@_$(TC)_$(MEM_CHECK)/`basename $(CURDIR)`" && \
 		mkdir -p "$$GEN_NOW" && cd "$$GEN_NOW" && \
 		mkdir -p $(SOURCE_DIRS)
-	# make includes/ dir structure for global (public) include files
-	$(SCRIPTS_BASE_DIR)/link_public_headers "$(GEN_INCLUDES_DIR)"
 	# make gen dir
 	mkdir -p "$(GEN_LIBS_DIR)"
 	# run
