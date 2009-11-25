@@ -5,7 +5,6 @@
 24 switch from copying .hpp files to linking (this prevents some strange bug that sometime appears).
 25 rename project ot 'build_system' which is more adequate.
 27 implement real split backend functionality.
-28 embedded test suit should NOT be part of build system.
 29 simplify template for tests - test class is in unnamed namespace, therefor no prefixes are needed (TestClass is enought).
 30 add parameter that forces component to rebuild
 31 add support for ccache.
@@ -16,4 +15,5 @@
 36 add support for easy adding auto-tools-based external components (buuld in gen, then export includes and libs).
 37 in bigger projects (i.e. dedal) there is WAY to big flag set for compilation - think what can be done about it.
 38 update template for features.
-39
+39 add renaming MEM_DEBUG flag in the code, to use meaninful names
+40
