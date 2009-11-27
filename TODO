@@ -17,5 +17,4 @@
 39 add renaming MEM_DEBUG flag in the code, to use meaninful names.
 41 check how to put 'public_headers.$(PROFILE)' in a proper directory.
 42 add 'local' compilation flags (just for this particular component - not passed higher).
-43 add += for *_FLAGS so that prj-spec can be added to config.mk
 44
