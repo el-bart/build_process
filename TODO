@@ -17,4 +17,5 @@
 39 add renaming MEM_DEBUG flag in the code, to use meaninful names.
 41 check how to put 'public_headers.$(PROFILE)' in a proper directory.
 42 add 'local' compilation flags (just for this particular component - not passed higher).
-44
+44 add components.lst, per-profile (ex.: components_test.lst) that would extend default set.
+45
