@@ -63,7 +63,8 @@ $(LIBRARY_NAME):: $(LIBRARY_DEPS)
 endif
 ifeq (dynamic,$(LIBRARY_TYPE))
 CXXFLAGS+=-fPIC
-LDFLAGS +=-shared -fPIC
+LDFLAGS +=-fPIC
+$(LIBRARY_NAME):: LDFLAGS+=-shared
 $(LIBRARY_NAME):: $(LIBRARY_DEPS)
 	@echo "LD    $@"
 	$(LD) $(LDFLAGS) -o $@ $(LIBRARY_OBJ_DEPS) $(LINK_LIBS) $(END_LINK_LIBS)

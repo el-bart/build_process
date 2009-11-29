@@ -1,4 +1,5 @@
 -- v1.1.0 --
+* fiex bug when linking tests for dynamic library.
 * moved project-specific flags to the config.mk (i.e. in order to optimize builds for given hardware, etc...).
 * gen directory now has links to header files instead of copyies.
 * removing public headers and unmariking header to non-public again are now supported.
