@@ -1,4 +1,8 @@
 -- v1.1.0 --
+* fiex bug when linking tests for dynamic library.
+* moved project-specific flags to the config.mk (i.e. in order to optimize builds for given hardware, etc...).
+* gen directory now has links to header files instead of copyies.
+* removing public headers and unmariking header to non-public again are now supported.
 * added paraller build to bzr_build.conf for multicore computers.
 * fixed bug with library relinking when coponent had common prefix with other library name.
 * test application for AVRs added.
