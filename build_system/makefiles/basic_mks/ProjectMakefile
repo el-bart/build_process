@@ -1,5 +1,5 @@
 # basic directories used in project
-include build_process/makefiles/common/dirs.mk
+include build_system/makefiles/common/dirs.mk
 
 # basic configuration for project
 include config.mk

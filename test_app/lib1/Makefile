@@ -1,1 +1,1 @@
-../build_process/makefiles/basic_mks/StaticLibraryMakefile
+../build_system/makefiles/basic_mks/StaticLibraryMakefile

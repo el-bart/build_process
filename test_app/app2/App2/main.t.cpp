@@ -1,1 +1,1 @@
-../../build_process/templates/tut_tests/main.t.cpp
+../../build_system/templates/tut_tests/main.t.cpp

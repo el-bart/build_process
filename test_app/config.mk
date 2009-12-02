@@ -1,1 +1,1 @@
-build_process/templates/config.mk
+build_system/templates/config.mk
