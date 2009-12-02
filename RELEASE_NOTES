@@ -1,4 +1,5 @@
 -- v1.1.0 --
+* template for tut-tests has been simplified a little.
 * ccache support by setting WITH_CCACHE=1 option.
 * fiex bug when linking tests for dynamic library.
 * moved project-specific flags to the config.mk (i.e. in order to optimize builds for given hardware, etc...).
