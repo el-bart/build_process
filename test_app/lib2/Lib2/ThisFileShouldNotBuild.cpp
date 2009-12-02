@@ -1,1 +1,2 @@
-#error "build system's MODE variable doesn't seem to work :("
+#error "build process' MODE variable doesn't seem to work :("
+
