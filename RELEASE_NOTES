@@ -1,3 +1,6 @@
+-- v?.?.? --
+* switched from electric-fence to duma library for memory debugging, since the first one caused problems with pthreads.
+
 -- v1.1.0 --
 * added automatic check for project's rebuilding when build_process changed.
 * fixed problem with building MEM_DEBUG=1 version to directory with "normal" version.
