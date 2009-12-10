@@ -10,7 +10,6 @@
 35 think how to implement components in subdirectories (i.e. input/inputImpl1 with namespaces Input::InputImpl1).
 36 add support for easy adding auto-tools-based external components (build in gen, then export includes and libs).
 37 in bigger projects there is WAY to big flag set for compilation - think what can be done about it.
-39 add renaming MEM_DEBUG flag in the code, to use meaninful names.
 41 check how to put 'public_headers.$(PROFILE)' in a proper directory.
 42 add 'local' compilation flags (just for this particular component - not passed higher).
 44 add components.lst, per-profile (ex.: components_test.lst) that would extend default set.
