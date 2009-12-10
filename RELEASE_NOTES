@@ -1,3 +1,6 @@
+-- v?.?.? --
+* fixed 'missing dependency header' problem.
+
 -- v1.1.1 --
 * falgs for compilation and linking of profile mode are less restrictive.
 * moved -rdynamic to linking, instead of compiling flags.
