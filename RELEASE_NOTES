@@ -1,4 +1,4 @@
--- v?.?.? --
+-- v1.1.1 --
 * falgs for compilation and linking of profile mode are less restrictive.
 * moved -rdynamic to linking, instead of compiling flags.
 * switched from electric-fence to duma library for memory debugging, since the first one caused problems with pthreads.
