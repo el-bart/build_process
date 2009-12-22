@@ -8,6 +8,8 @@ extern "C"
 #include "Lib1/subdir/Write.hpp"
 #include "Lib3/call.hpp"
 #include "config.hpp"
+#include "Lib1/Reg.hpp"
+#include "Lib3/Reg.hpp"
 
 
 using namespace std;
@@ -35,6 +37,18 @@ int main(void)
 
   // Lib3 - call
   call();
+
+  cout<<"force-link registered strings:"<<endl;
+  // Lib1
+  for(Lib1::Reg::StrVec::const_iterator it=Lib1::Reg::get().begin();
+      it!=Lib1::Reg::get().end();
+      ++it)
+    cout<<"  -> "<<*it<<endl;
+  // Lib3
+  for(Lib3::Reg::StrVec::const_iterator it=Lib3::Reg::get().begin();
+      it!=Lib3::Reg::get().end();
+      ++it)
+    cout<<"  -> "<<*it<<endl;
 
   return 0;
 }
