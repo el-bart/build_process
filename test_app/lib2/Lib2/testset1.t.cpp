@@ -55,7 +55,7 @@ template<>
 template<>
 void testObj::test<2>(void)
 {
-  ensure("oops", fcc()>=0);
+  ensure_equals("oops", fcc()-fcc(), 0);
 }
 
 } // namespace tut
