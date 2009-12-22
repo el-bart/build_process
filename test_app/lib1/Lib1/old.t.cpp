@@ -41,7 +41,7 @@ template<>
 template<>
 void testObj::test<1>(void)
 {
-  ensure("impossible condition", fcc()>=0 );
+  ensure("impossible condition", fcc()-fcc()==0 );
 }
 
 } // namespace tut
