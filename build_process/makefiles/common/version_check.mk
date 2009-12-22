@@ -2,6 +2,7 @@ BUILD_PROCESS_VERSION_TIMESTAMP:=$(GEN_BASE_DIR)/build_process_version_check.ts
 
 # this code checks if build process' files didn't changed since initial
 # build, and if so, inform user that (s)he should rebuild software
+$(BUILD_PROCESS_VERSION_TIMESTAMP): $(wildcard $(CODE_BASE_DIR)/* $(CODE_BASE_DIR)/*/*)
 $(BUILD_PROCESS_VERSION_TIMESTAMP): $(wildcard $(MAKEFILES_BASE_DIR)/*.mk)
 $(BUILD_PROCESS_VERSION_TIMESTAMP): $(wildcard $(MAKEFILES_BASE_DIR)/basic_mks/*)
 $(BUILD_PROCESS_VERSION_TIMESTAMP): $(wildcard $(MAKEFILES_COMMON_BASE_DIR)/*.mk)
