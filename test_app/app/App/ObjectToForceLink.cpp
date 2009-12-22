@@ -9,7 +9,7 @@
 //
 #include "BuildProcess/ForceLink.hpp"
 
-namespace Lib2
+namespace App
 {
 
 // registering code itself does not have to be available outside this module
@@ -17,7 +17,7 @@ namespace
 {
 bool doItBeforeMain(void)
 {
-  Lib1::Reg::get().push_back("hello Lib2/ObjectToForceLink.cpp :)");
+  Lib1::Reg::get().push_back("hello App/ObjectToForceLink.cpp :)");
   return true;
 }
 
@@ -31,6 +31,6 @@ const bool registered=doItBeforeMain();
 // parameter has to be uniq in the whole project. it also has to be valid
 // C++ variable name.
 //
-FORCE_LINK_THIS_OBJECT(Lib2_ObjectToForceLink)
+FORCE_LINK_THIS_OBJECT(App_ObjectToForceLink)
 
-} // namespace Lib2
+} // namespace App
