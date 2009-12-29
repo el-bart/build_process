@@ -50,7 +50,7 @@ template<>
 template<>
 void testObj::test<2>(void)
 {
-  ensure( !isZero(0) ); // this should fail
+  ensure("OK - this test should fail",  !isZero(0) );   // this should fail
 }
 
 } // namespace tut
