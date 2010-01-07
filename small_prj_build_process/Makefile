@@ -43,13 +43,14 @@ CXXSRCS=$(filter-out $(CXXTESTSRCS), $(shell find . -iname '*.cpp'))
 CSRCS  =$(filter-out $(CTESTSRCS),   $(shell find . -iname '*.c'  ))
 export CSRCS CXXSRCS
 
+COMMON_FLAGS:=-Wall -I$(SRCDIR)
 
 CC=gcc
-CFLAGS+=-Wall
+CFLAGS+=$(COMMON_FLAGS)
 export CC CFLAGS
 
 CXX=g++
-CXXFLAGS+=-Wall
+CXXFLAGS+=$(COMMON_FLAGS)
 export CXX CXXFLAGS
 
 # TODO
