@@ -6,7 +6,7 @@
 
 #include "P1/Strategy1.hpp"
 
-//using namespace UserNamespace;
+using namespace P1;
 
 namespace
 {
@@ -30,9 +30,7 @@ struct TestImpl: public Strategy1
   }
 
   int callsX_;
-  int callsy_;
-};
-
+  int callsY_;
 };
 
 struct TestClass

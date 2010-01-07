@@ -1,5 +1,8 @@
 #pragma once
 
+namespace P2
+{
+
 struct Strategy2
 {
   virtual ~Strategy2(void);
@@ -8,3 +11,5 @@ struct Strategy2
 private:
   virtual void a(void) = 0;
 };
+
+}

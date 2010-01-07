@@ -3,7 +3,12 @@
 
 using namespace std;
 
+namespace P2
+{
+
 void Strategy2_2::a(void)
 {
   cout<<"Strategy2_2::a()\n";
+}
+
 }

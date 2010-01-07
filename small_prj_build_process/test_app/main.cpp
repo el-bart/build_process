@@ -27,8 +27,9 @@ struct B: public A
 
 int main(void)
 {
-  B< Strategy1_2 >  b;
-  A                &a=b;
+  B< P2::Strategy2_1 >  b;
+  //B< P1::Strategy1_2 >  b;
+  A                    &a=b;
   a.p();
   return 0;
 }
