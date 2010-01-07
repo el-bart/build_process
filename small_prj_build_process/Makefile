@@ -25,31 +25,31 @@ endef
 
 # if gendir was not set by upper call of make, set it now
 ifeq (,$(GENDIR))
-GENDIR=$(CURDIR)/gen
+GENDIR:=$(CURDIR)/gen
 endif
-SRCDIR=$(CURDIR)
+SRCDIR:=$(CURDIR)
 VPATH+=$(SRCDIR)
 export GENDIR SRCDIR VPATH
 
 
-CXXSRCS_NOMAIN=$(shell find . -iname '*.cpp' -exec grep -L '^int main' {} \; )
-CSRCS_NOMAIN  =$(shell find . -iname '*.c'   -exec grep -L '^int main' {} \; )
+CXXSRCS_NOMAIN:=$(shell find . -iname '*.cpp' -exec grep -L '^int main' {} \; )
+CSRCS_NOMAIN  :=$(shell find . -iname '*.c'   -exec grep -L '^int main' {} \; )
 export CSRCS_NOMAIN CXXSRCS_NOMAIN
-CXXTESTSRCS=$(shell find . -iname '*.t.cpp')
-CTESTSRCS  =$(shell find . -iname '*.t.c'  )
+CXXTESTSRCS:=$(shell find . -iname '*.t.cpp')
+CTESTSRCS  :=$(shell find . -iname '*.t.c'  )
 export CTESTSRCS CXXTESTSRCS
 
-CXXSRCS=$(filter-out $(CXXTESTSRCS), $(shell find . -iname '*.cpp'))
-CSRCS  =$(filter-out $(CTESTSRCS),   $(shell find . -iname '*.c'  ))
+CXXSRCS:=$(filter-out $(CXXTESTSRCS), $(shell find . -iname '*.cpp'))
+CSRCS  :=$(filter-out $(CTESTSRCS),   $(shell find . -iname '*.c'  ))
 export CSRCS CXXSRCS
 
 COMMON_FLAGS:=-Wall -I$(SRCDIR)
 
-CC=gcc
+CC:=gcc
 CFLAGS+=$(COMMON_FLAGS)
 export CC CFLAGS
 
-CXX=g++
+CXX:=g++
 CXXFLAGS+=$(COMMON_FLAGS)
 export CXX CXXFLAGS
 
@@ -71,26 +71,26 @@ all: debug
 
 .PHONY: debug
 debug: CXXFLAGS+=-g3
-debug: TARGET=all
+debug: TARGET:=all
 debug:
 	@$(run-in-gen)
 
 .PHONY: release
 release: CXXFLAGS+=-O3 -DNDEBUG
-release: TARGET=all
+release: TARGET:=all
 release:
 	@$(run-in-gen)
 
 .PHONY: profile
 profile: CXXFLAGS+=-pg -DNDEBUG
 profile: LDFLAGS+=-pg
-profile: TARGET=all
+profile: TARGET:=all
 profile:
 	@$(run-in-gen)
 
 .PHONY: test
 test: CXXFLAGS+=-g3
-test: TARGET=test
+test: TARGET:=test
 test:
 	@$(run-in-gen)
 
