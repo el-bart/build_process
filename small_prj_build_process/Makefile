@@ -1,5 +1,5 @@
 PROGRAM_NAME=program
-TEST_PROGRAM_NAME=tests
+TEST_PROGRAM_NAME=$(PROGRAM_NAME).t
 export PROGRAM_NAME \
        TEST_PROGRAM_NAME
 
@@ -51,6 +51,11 @@ export CC CFLAGS
 CXX=g++
 CXXFLAGS+=-Wall
 export CXX CXXFLAGS
+
+# TODO
+#LD:=$(CXX)
+#LDFLAGS:=
+#export LD LDFLAGS
 
 export LDFLAGS
 
@@ -126,38 +131,21 @@ $(PROGRAM_NAME): $(CXXOBJS) $(COBJS)
 	echo "LD  $@"
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-# C++ dep files:
-%.d: %.cpp
-	echo "DEP $*.cpp"
-	$(CXX) -MM $(CXXFLAGS) "$(SRCDIR)/$*.cpp" > "$@"
-	sed -i 's#\($*\).o[ :]*#\1.o $@: #' "$@"
-
 # C++ source files:
 %.o: %.cpp
 	echo "CXX $*.cpp"
-	$(CXX) $(CXXFLAGS) -c "$(SRCDIR)/$*.cpp" -o "$@"
-
-# C dep files:
-%.d: %.c
-	echo "DEP $*.c"
-	$(CC) -MM $(CFLAGS) "$(SRCDIR)/$*.c" > "$@"
-	sed -i 's#\($*\).o[ :]*#\1.o $@: #' "$@"
+	$(CXX) $(CXXFLAGS) -MMD -c "$(SRCDIR)/$*.cpp" -o "$@"
 
 # C source files:
 %.o: %.c
 	echo "CC  $*.c"
-	$(CC) $(CFLAGS) -c "$(SRCDIR)/$*.c" -o "$@"
+	$(CC) $(CFLAGS) -MMD -c "$(SRCDIR)/$*.c" -o "$@"
 
 
 # has C sources?
-ifneq (,$(CDEPS))
 -include $(CDEPS)
-endif
 
 # has C++ sources?
-ifneq (,$(CXXDEPS))
 -include $(CXXDEPS)
-endif
 
 endif
-
