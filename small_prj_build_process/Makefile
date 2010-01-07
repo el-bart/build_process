@@ -1,3 +1,11 @@
+#
+# Small Project Makefile
+#
+# this file is small a part of build_process package.
+# full-featured build_process is available on BSD license
+# on http://www.baszerr.org, prjs -> build_process.
+#
+
 ifeq (,$(filter %/gen/$(TARGET),$(basename $(CURDIR))))
 #
 # main part, run in sources dir
