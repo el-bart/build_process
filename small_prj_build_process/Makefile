@@ -23,10 +23,7 @@ endef
 .SUFFIXES:
 
 
-# if gendir was not set by upper call of make, set it now
-ifeq (,$(GENDIR))
 GENDIR:=$(CURDIR)/gen
-endif
 SRCDIR:=$(CURDIR)
 VPATH+=$(SRCDIR)
 export GENDIR SRCDIR VPATH
@@ -53,10 +50,9 @@ CXX:=g++
 CXXFLAGS+=$(COMMON_FLAGS)
 export CXX CXXFLAGS
 
-# TODO
-#LD:=$(CXX)
-#LDFLAGS:=
-#export LD LDFLAGS
+LD:=$(CXX)
+LDFLAGS:=
+export LD LDFLAGS
 
 export LDFLAGS
 
@@ -70,25 +66,29 @@ export LIBS LIBS_TEST
 all: debug
 
 .PHONY: debug
+debug: CFLAGS+=-g3
 debug: CXXFLAGS+=-g3
 debug: TARGET:=all
 debug:
 	@$(run-in-gen)
 
 .PHONY: release
+release: CFLAGS+=-O3 -DNDEBUG
 release: CXXFLAGS+=-O3 -DNDEBUG
 release: TARGET:=all
 release:
 	@$(run-in-gen)
 
 .PHONY: profile
-profile: CXXFLAGS+=-pg -DNDEBUG
+profile: CFLAGS+=-pg -DNDEBUG -O3 -g
+profile: CXXFLAGS+=-pg -DNDEBUG -O3 -g
 profile: LDFLAGS+=-pg
 profile: TARGET:=all
 profile:
 	@$(run-in-gen)
 
 .PHONY: test
+test: CFLAGS+=-g3
 test: CXXFLAGS+=-g3
 test: TARGET:=test
 test:
@@ -126,19 +126,19 @@ test: $(TEST_PROGRAM_NAME)
 $(TEST_PROGRAM_NAME): $(CXXTESTOBJS) $(CTESTOBJS) \
 						$(CXXOBJS_NOMAIN) $(COBJS_NOMAIN)
 	echo "LD  $@"
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(LD) $(LDFLAGS) -o $@ $^
 
 $(PROGRAM_NAME): $(CXXOBJS) $(COBJS)
 	echo "LD  $@"
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(LD) $(LDFLAGS) -o $@ $^
 
 # C++ source files:
-%.o: %.cpp
+%.o: %.cpp $(SRCDIR)/Makefile
 	echo "CXX $*.cpp"
 	$(CXX) $(CXXFLAGS) -MMD -c "$(SRCDIR)/$*.cpp" -o "$@"
 
 # C source files:
-%.o: %.c
+%.o: %.c $(SRCDIR)/Makefile
 	echo "CC  $*.c"
 	$(CC) $(CFLAGS) -MMD -c "$(SRCDIR)/$*.c" -o "$@"
 
