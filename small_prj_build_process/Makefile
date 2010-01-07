@@ -48,7 +48,7 @@ export CFLAGS
 CXXFLAGS+=$(COMMON_FLAGS)
 export CXXFLAGS
 
-LDFLAGS:=
+LDFLAGS+=
 export LDFLAGS
 
 export TARGET
@@ -138,6 +138,11 @@ $(PROGRAM_NAME): $(CXXOBJS) $(COBJS)
 %.o: %.c $(SRCDIR)/Makefile
 	echo "CC  $*.c"
 	$(CC) $(CFLAGS) -MMD -c "$(SRCDIR)/$*.c" -o "$@"
+
+
+# makefile depends on its include
+$(SRCDIR)/Makefile: $(SRCDIR)/config.mk
+	touch "$@"
 
 
 # has C sources?
