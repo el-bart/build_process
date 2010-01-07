@@ -1,0 +1,31 @@
+Small Projects Build Process
+============================
+
+this is make file dedicated for very small projects, where
+full-featured build system is not required. it provides
+basic functionalities like dependency tracking and
+automated tests support.
+
+to use it all you have to do is create proper directory
+structure and type 'make <target_name>'. typical layout is:
+
+my_prj:
+  Makefile
+  my_docs:
+    some_doc_1.txt
+    some_doc_2.txt
+  my_sources:
+    src1.c
+    src1.h
+    src1.t.cpp
+    src2.cpp
+    src2.hpp
+    src2.t.cpp
+    main.cpp
+
+makefile will automatically generate 'gen' output directory
+for build results. this is the only place where outputs are
+stored, therefor removing it makes your distribution
+object-files-clean.
+
+this project is a part of build_process package.
