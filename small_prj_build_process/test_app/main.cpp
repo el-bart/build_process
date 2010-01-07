@@ -2,6 +2,10 @@
 #include "P1/Strategy1_2.hpp"
 #include "P2/Strategy2_1.hpp"
 #include "P2/Strategy2_2.hpp"
+extern "C"
+{
+#include "hello.h"
+}
 
 struct A
 {
@@ -27,6 +31,8 @@ struct B: public A
 
 int main(void)
 {
+  hello("build");
+
   B< P2::Strategy2_1 >  b;
   //B< P1::Strategy1_2 >  b;
   A                    &a=b;

@@ -1,9 +1,7 @@
-PROGRAM_NAME=program
-TEST_PROGRAM_NAME=$(PROGRAM_NAME).t
-export PROGRAM_NAME \
-       TEST_PROGRAM_NAME
-
 ifeq (,$(filter %/gen/$(TARGET),$(basename $(CURDIR))))
+#
+# main part, run in sources dir
+#
 
 # don't use Verbose mode (be silent)?
 ifeq (,$V)
@@ -22,6 +20,8 @@ endef
 
 .SUFFIXES:
 
+# use user-provided configuration
+include config.mk
 
 GENDIR:=$(CURDIR)/gen
 SRCDIR:=$(CURDIR)
@@ -42,25 +42,19 @@ export CSRCS CXXSRCS
 
 COMMON_FLAGS:=-Wall -I$(SRCDIR)
 
-CC:=gcc
 CFLAGS+=$(COMMON_FLAGS)
-export CC CFLAGS
+export CFLAGS
 
-CXX:=g++
 CXXFLAGS+=$(COMMON_FLAGS)
-export CXX CXXFLAGS
+export CXXFLAGS
 
-LD:=$(CXX)
 LDFLAGS:=
-export LD LDFLAGS
-
 export LDFLAGS
 
 export TARGET
 
-# these will be set in child-call:
-export LIBS LIBS_TEST
-
+TEST_PROGRAM_NAME=$(PROGRAM_NAME).t
+export TEST_PROGRAM_NAME
 
 .PHONY: all
 all: debug
@@ -101,6 +95,9 @@ clean:
 	rm -rvf "$(GENDIR)"
 
 else
+#
+# part run in gen
+#
 
 # object files:
 COBJS  +=$(CSRCS:.c=.o)
