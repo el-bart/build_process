@@ -2,6 +2,11 @@
 export PROGRAM_NAME:=test_program
 
 # toolchain
-export CC:=gcc
+export CC :=gcc
 export CXX:=g++
-export LD:=$(CXX)
+export LD :=$(CXX)
+
+# extra flags, if needed
+export CFLAGS  +=
+export CXXFLAGS+=
+export LDFLAGS +=
