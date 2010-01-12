@@ -1,9 +1,15 @@
-PROGRAM_NAME=program
-TEST_PROGRAM_NAME=tests
-export PROGRAM_NAME \
-       TEST_PROGRAM_NAME
+#
+# Small Project Makefile
+#
+# this file is small a part of build_process package.
+# full-featured build_process is available on BSD license
+# on http://www.baszerr.org, prjs -> build_process.
+#
 
 ifeq (,$(filter %/gen/$(TARGET),$(basename $(CURDIR))))
+#
+# main part, run in sources dir
+#
 
 # don't use Verbose mode (be silent)?
 ifeq (,$V)
@@ -22,69 +28,71 @@ endef
 
 .SUFFIXES:
 
+# use user-provided configuration
+include config.mk
 
-# if gendir was not set by upper call of make, set it now
-ifeq (,$(GENDIR))
-GENDIR=$(CURDIR)/gen
-endif
-SRCDIR=$(CURDIR)
+GENDIR:=$(CURDIR)/gen
+SRCDIR:=$(CURDIR)
 VPATH+=$(SRCDIR)
 export GENDIR SRCDIR VPATH
 
 
-CXXSRCS_NOMAIN=$(shell find . -iname '*.cpp' -exec grep -L '^int main' {} \; )
-CSRCS_NOMAIN  =$(shell find . -iname '*.c'   -exec grep -L '^int main' {} \; )
+CXXSRCS_NOMAIN:=$(shell find . -iname '*.cpp' -exec grep -L '^int main' {} \; )
+CSRCS_NOMAIN  :=$(shell find . -iname '*.c'   -exec grep -L '^int main' {} \; )
 export CSRCS_NOMAIN CXXSRCS_NOMAIN
-CXXTESTSRCS=$(shell find . -iname '*.t.cpp')
-CTESTSRCS  =$(shell find . -iname '*.t.c'  )
+CXXTESTSRCS:=$(shell find . -iname '*.t.cpp')
+CTESTSRCS  :=$(shell find . -iname '*.t.c'  )
 export CTESTSRCS CXXTESTSRCS
 
-CXXSRCS=$(filter-out $(CXXTESTSRCS), $(shell find . -iname '*.cpp'))
-CSRCS  =$(filter-out $(CTESTSRCS),   $(shell find . -iname '*.c'  ))
+CXXSRCS:=$(filter-out $(CXXTESTSRCS), $(shell find . -iname '*.cpp'))
+CSRCS  :=$(filter-out $(CTESTSRCS),   $(shell find . -iname '*.c'  ))
 export CSRCS CXXSRCS
 
+COMMON_FLAGS:=-Wall -I$(SRCDIR)
 
-CC=gcc
-CFLAGS+=-Wall
-export CC CFLAGS
+CFLAGS+=$(COMMON_FLAGS)
+export CFLAGS
 
-CXX=g++
-CXXFLAGS+=-Wall
-export CXX CXXFLAGS
+CXXFLAGS+=$(COMMON_FLAGS)
+export CXXFLAGS
 
+LDFLAGS+=
 export LDFLAGS
 
 export TARGET
 
-# these will be set in child-call:
-export LIBS LIBS_TEST
-
+TEST_PROGRAM_NAME=$(PROGRAM_NAME).t
+export TEST_PROGRAM_NAME
 
 .PHONY: all
 all: debug
 
 .PHONY: debug
+debug: CFLAGS+=-g3
 debug: CXXFLAGS+=-g3
-debug: TARGET=all
+debug: TARGET:=all
 debug:
 	@$(run-in-gen)
 
 .PHONY: release
+release: CFLAGS+=-O3 -DNDEBUG
 release: CXXFLAGS+=-O3 -DNDEBUG
-release: TARGET=all
+release: TARGET:=all
 release:
 	@$(run-in-gen)
 
 .PHONY: profile
-profile: CXXFLAGS+=-pg -DNDEBUG
+profile: CFLAGS+=-pg -DNDEBUG -O3 -g
+profile: CXXFLAGS+=-pg -DNDEBUG -O3 -g
 profile: LDFLAGS+=-pg
-profile: TARGET=all
+profile: TARGET:=all
 profile:
 	@$(run-in-gen)
 
 .PHONY: test
+test: CFLAGS+=-g3
 test: CXXFLAGS+=-g3
-test: TARGET=test
+test: TARGET:=test
 test:
 	@$(run-in-gen)
 
@@ -95,6 +103,9 @@ clean:
 	rm -rvf "$(GENDIR)"
 
 else
+#
+# part run in gen
+#
 
 # object files:
 COBJS  +=$(CSRCS:.c=.o)
@@ -120,44 +131,32 @@ test: $(TEST_PROGRAM_NAME)
 $(TEST_PROGRAM_NAME): $(CXXTESTOBJS) $(CTESTOBJS) \
 						$(CXXOBJS_NOMAIN) $(COBJS_NOMAIN)
 	echo "LD  $@"
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(LD) $(LDFLAGS) -o $@ $^
 
 $(PROGRAM_NAME): $(CXXOBJS) $(COBJS)
 	echo "LD  $@"
-	$(CXX) $(CXXFLAGS) -o $@ $^
-
-# C++ dep files:
-%.d: %.cpp
-	echo "DEP $*.cpp"
-	$(CXX) -MM $(CXXFLAGS) "$(SRCDIR)/$*.cpp" > "$@"
-	sed -i 's#\($*\).o[ :]*#\1.o $@: #' "$@"
+	$(LD) $(LDFLAGS) -o $@ $^
 
 # C++ source files:
-%.o: %.cpp
+%.o: %.cpp $(SRCDIR)/Makefile
 	echo "CXX $*.cpp"
-	$(CXX) $(CXXFLAGS) -c "$(SRCDIR)/$*.cpp" -o "$@"
-
-# C dep files:
-%.d: %.c
-	echo "DEP $*.c"
-	$(CC) -MM $(CFLAGS) "$(SRCDIR)/$*.c" > "$@"
-	sed -i 's#\($*\).o[ :]*#\1.o $@: #' "$@"
+	$(CXX) $(CXXFLAGS) -MMD -c "$(SRCDIR)/$*.cpp" -o "$@"
 
 # C source files:
-%.o: %.c
+%.o: %.c $(SRCDIR)/Makefile
 	echo "CC  $*.c"
-	$(CC) $(CFLAGS) -c "$(SRCDIR)/$*.c" -o "$@"
+	$(CC) $(CFLAGS) -MMD -c "$(SRCDIR)/$*.c" -o "$@"
+
+
+# makefile depends on its include
+$(SRCDIR)/Makefile: $(SRCDIR)/config.mk
+	touch "$@"
 
 
 # has C sources?
-ifneq (,$(CDEPS))
 -include $(CDEPS)
-endif
 
 # has C++ sources?
-ifneq (,$(CXXDEPS))
 -include $(CXXDEPS)
-endif
 
 endif
-
