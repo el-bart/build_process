@@ -4,7 +4,7 @@
  * some example test set for test application.
  *
  */
-#include <tut.h>
+#include <tut/tut.hpp>
 
 #include "UserNamespace/Some.hpp"
 
