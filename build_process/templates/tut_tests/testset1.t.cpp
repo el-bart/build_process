@@ -20,9 +20,9 @@ struct TestClass
   }
 };
 
-typedef TestClass TestClass;
+typedef TestClass                  TestClass;
 typedef tut::test_group<TestClass> factory;
-typedef factory::object testObj;
+typedef factory::object            testObj;
 
 factory tf("UserNamespace/Some");
 } // unnamed namespace
