@@ -1,6 +1,7 @@
 * added force-link functionality.
 * fixed small-projects-build-process and made it official part of build_process release.
 * added test application for small-prj-build-process.
+* added support for components build only in some profiles (ex. tests).
 
 -- v1.1.2 --
 * fixed 'missing dependency header' problem.

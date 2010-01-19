@@ -11,7 +11,6 @@
 37 in bigger projects there is WAY to big flag set for compilation - think what can be done about it.
 41 check how to put 'public_headers.$(PROFILE)' in a proper directory.
 42 add 'local' compilation flags (just for this particular component - not passed higher).
-44 add components.lst, per-profile (ex.: components_test.lst) that would extend default set.
 47 consider changing .o to .oxx for C++ objects.
 48 fix problem with passing some flags to make, like 'make -k'.
 50
