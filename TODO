@@ -13,4 +13,5 @@
 42 add 'local' compilation flags (just for this particular component - not passed higher).
 47 consider changing .o to .oxx for C++ objects.
 48 fix problem with passing some flags to make, like 'make -k'.
-50
+50 rethink dependency finding script - it works too slow for bigger projects.
+51
