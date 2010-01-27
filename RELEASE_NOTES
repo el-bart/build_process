@@ -3,6 +3,7 @@
 * added test application for small-prj-build-process.
 * added support for components build only in some profiles (ex. tests).
 * list of build-process files checked during dependency is now more readable.
+* implemented 'local flags' - compilation flags available for single component only and not passed to other components, depepndent on this one.
 
 -- v1.1.2 --
 * fixed 'missing dependency header' problem.
