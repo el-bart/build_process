@@ -4,6 +4,7 @@
 * added support for components build only in some profiles (ex. tests).
 * list of build-process files checked during dependency is now more readable.
 * implemented 'local flags' - compilation flags available for single component only and not passed to other components, depepndent on this one.
+* 'test' and 'mtest' profiles now build their own 'debug' libraries; it is required since compilation flags for debug and (m)test may differ.
 
 -- v1.1.2 --
 * fixed 'missing dependency header' problem.
