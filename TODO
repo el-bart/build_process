@@ -13,4 +13,5 @@
 47 consider changing .o to .oxx for C++ objects.
 48 fix problem with passing some flags to make, like 'make -k'.
 50 rethink dependency finding script - it works too slow for bigger projects.
-51
+51 compiling 'test' should build 'debug' internally - not as external profile to link with.
+52
