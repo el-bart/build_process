@@ -6,6 +6,14 @@
  */
 #include <tut.h>
 
+#ifndef LIB1_TEST_ONLY__LOCAL_FLAG
+#error "LIB1_TEST_ONLY__LOCAL_FLAG not set in tests"
+#endif
+
+#ifndef LIB1__LOCAL_FLAG
+#error "LIB1__LOCAL_FLAG not set"
+#endif
+
 namespace tut
 {
 

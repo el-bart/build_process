@@ -9,9 +9,8 @@
 35 think how to implement components in subdirectories (i.e. input/inputImpl1 with namespaces Input::InputImpl1).
 36 add support for easy adding auto-tools-based external components (build in gen, then export includes and libs).
 37 in bigger projects there is WAY to big flag set for compilation - think what can be done about it.
-41 check how to put 'public_headers.$(PROFILE)' in a proper directory.
-42 add 'local' compilation flags (just for this particular component - not passed higher).
-44 add components.lst, per-profile (ex.: components_test.lst) that would extend default set.
 47 consider changing .o to .oxx for C++ objects.
 48 fix problem with passing some flags to make, like 'make -k'.
-50
+50 rethink dependency finding script - it works too slow for bigger projects.
+51 compiling 'test' should build 'debug' internally - not as external profile to link with.
+52

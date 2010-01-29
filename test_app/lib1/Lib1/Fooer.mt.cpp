@@ -3,6 +3,14 @@
 
 #include "Lib1/Fooer.hpp"
 
+#ifdef LIB1_TEST_ONLY__LOCAL_FLAG
+#error "LIB1_TEST_ONLY__LOCAL_FLAG set in manual tests too"
+#endif
+
+#ifndef LIB1__LOCAL_FLAG
+#error "LIB1__LOCAL_FLAG not set"
+#endif
+
 using namespace std;
 
 int main(int argc, char **argv)

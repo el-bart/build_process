@@ -1,29 +1,24 @@
 /*
- * testset1.t.cpp
- *
- * some example test set for test application.
+ * otherTestSet.t.cpp
  *
  */
 #include <tut/tut.hpp>
 
-#include "UserNamespace/Some.hpp"
+#include "LibTest1/TestHelper.hpp"
+#include "App/config.hpp"
 
-using namespace UserNamespace;
+//using namespace App;
 
 namespace
 {
 struct TestClass
 {
-  bool isZero(int v) const
-  {
-    return v==0;
-  }
 };
 
 typedef tut::test_group<TestClass> factory;
 typedef factory::object            testObj;
 
-factory tf("UserNamespace/Some");
+factory tf("App/config");
 } // unnamed namespace
 
 
@@ -34,8 +29,8 @@ template<>
 template<>
 void testObj::test<1>(void)
 {
-  ensure(  isZero(0) );
-  ensure( !isZero(2) );
+  LibTest1::TestHelper deepThough;
+  ensure_equals("invalid answer", deepThough.getAnswer(), 42);
 }
 
 } // namespace tut
