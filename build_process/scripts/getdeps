@@ -9,8 +9,8 @@ then
   exit 1
 fi
 
-echo "XX: $@" >&2
-echo "CDEPS $4" >&2
+# display info on rebuilding dependency for a given component
+echo "CDEPS $4"
 
 # remember output dir
 OUTPUT_DIR="$1"
