@@ -1,4 +1,3 @@
-2  fix bug with spaces in project dir path.
 10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
 19 add doc file with description to project too (not only on web).
 20 consider support for bcov (gcov?) integration with build process.
