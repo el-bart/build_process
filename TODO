@@ -5,7 +5,6 @@
 27 implement real split backend functionality.
 30 add parameter that forces component to rebuild
 32 add support for distcc.
-34 make PROFILE=doc build stop when there are errors in comments.
 35 think how to implement components in subdirectories (i.e. input/Impl1 with namespaces Input::Impl1).
 36 add support for easy adding auto-tools-based external components (build in gen, then export includes and libs).
 48 fix problem with passing some flags to make, like 'make -k'.
