@@ -1,3 +1,4 @@
+-- v1.2.0 --
 * added force-link functionality.
 * fixed small-projects-build-process and made it official part of build_process release.
 * added test application for small-prj-build-process.
@@ -8,6 +9,7 @@
 * verbose output when computing components' dependencies.
 * flags passed to compilation are now reduced to absolute minimum.
 * fixed problem with not rebuilding when new dependency file appeared (ex. 'common' or '$profile').
+* files with the sme name in C and C++ are now allowed (ex.: myfile.c and myfile.cpp).
 
 -- v1.1.2 --
 * fixed 'missing dependency header' problem.
