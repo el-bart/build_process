@@ -11,7 +11,6 @@ extern "C"
 #include "Lib1/Reg.hpp"
 #include "Lib3/Reg.hpp"
 
-
 using namespace std;
 
 void print(const Foo &foo)

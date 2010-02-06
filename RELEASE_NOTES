@@ -1,3 +1,8 @@
+-- ?? --
+* building 'doc' profile now stops when something's not/wrongly commented.
+* removed redundant libraries form linking.
+
+-- v1.2.0 --
 * added force-link functionality.
 * fixed small-projects-build-process and made it official part of build_process release.
 * added test application for small-prj-build-process.
@@ -5,6 +10,10 @@
 * list of build-process files checked during dependency is now more readable.
 * implemented 'local flags' - compilation flags available for single component only and not passed to other components, depepndent on this one.
 * 'test' and 'mtest' profiles now build their own 'debug' libraries; it is required since compilation flags for debug and (m)test may differ.
+* verbose output when computing components' dependencies.
+* flags passed to compilation are now reduced to absolute minimum.
+* fixed problem with not rebuilding when new dependency file appeared (ex. 'common' or '$profile').
+* files with the sme name in C and C++ are now allowed (ex.: myfile.c and myfile.cpp).
 
 -- v1.1.2 --
 * fixed 'missing dependency header' problem.

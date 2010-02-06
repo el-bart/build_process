@@ -1,16 +1,12 @@
-2  fix bug with spaces in project dir path.
 10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
 19 add doc file with description to project too (not only on web).
 20 consider support for bcov (gcov?) integration with build process.
 27 implement real split backend functionality.
 30 add parameter that forces component to rebuild
 32 add support for distcc.
-34 make PROFILE=doc build stop when there are errors in comments.
-35 think how to implement components in subdirectories (i.e. input/inputImpl1 with namespaces Input::InputImpl1).
+35 think how to implement components in subdirectories (i.e. input/Impl1 with namespaces Input::Impl1).
 36 add support for easy adding auto-tools-based external components (build in gen, then export includes and libs).
-37 in bigger projects there is WAY to big flag set for compilation - think what can be done about it.
-47 consider changing .o to .oxx for C++ objects.
 48 fix problem with passing some flags to make, like 'make -k'.
-50 rethink dependency finding script - it works too slow for bigger projects.
-51 compiling 'test' should build 'debug' internally - not as external profile to link with.
-52
+52 optimize computing flags for dependent components using pre-compiled flag-files.
+53 support for testing in C only (.t.c and .mt.c) - low priority.
+54
