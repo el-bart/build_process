@@ -1,6 +1,7 @@
 -- ?? --
 * building 'doc' profile now stops when something's not/wrongly commented.
 * removed redundant libraries form linking.
+* more flags have been separeted as toolchain-dependent.
 
 -- v1.2.0 --
 * added force-link functionality.
