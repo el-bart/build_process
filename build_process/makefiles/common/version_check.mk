@@ -21,6 +21,8 @@ $(BUILD_PROCESS_VERSION_TIMESTAMP): $(wildcard $(SCRIPTS_BASE_DIR)/*)
 			echo "if you understand what has happened and you are SURE this is false alarm" >&2 ; \
 			echo "you can supprese this message by removing following file:" >&2 ; \
 			echo "$@" >&2 ; \
+			echo "" >&2 ; \
+			echo "note: this message may inform on change in compilation flags as well." >&2 ; \
 			echo "--------------------------------------------------------------------------" >&2 ; \
 			false ; \
 		else \
