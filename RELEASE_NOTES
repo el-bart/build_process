@@ -1,8 +1,11 @@
 -- ?? --
+* fixed display of available toolchains, when wrong is given.
+* intel's icc toolchain is now supported.
 
 -- v1.2.1 --
 * building 'doc' profile now stops when something's not/wrongly commented.
 * removed redundant libraries form linking.
+* more flags have been separeted as toolchain-dependent.
 
 -- v1.2.0 --
 * added force-link functionality.
