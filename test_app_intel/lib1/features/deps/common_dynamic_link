@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "-L/common/dynamic/link/from/lib1 -lstdc++ -lpthread"
