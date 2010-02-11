@@ -9,6 +9,6 @@
 48 fix problem with passing some flags to make, like 'make -k'.
 52 optimize computing flags for dependent components using pre-compiled flag-files.
 53 support for testing in C only (.t.c and .mt.c) - low priority.
-54 add intel toolchain support
+54 add intel toolchain support (check ranlib and nm).
 55 add warning when using icc with ccache - icc is broken and creates wrong output in dependency files.
 56
