@@ -18,8 +18,6 @@ struct A
 template<typename TStrategy>
 struct B: public A
 {
-  // TODO: c-tor...
-
   virtual void p(void)
   {
     s_.proc();
