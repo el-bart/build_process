@@ -1,4 +1,4 @@
--- ?? --
+-- v1.3.0 --
 * fixed display of available toolchains, when wrong is given.
 * intel's icc toolchain is now supported.
 * build_process now warns when using icc with ccache, which (due to icc issues) does not work properly in all cases.
