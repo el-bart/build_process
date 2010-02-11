@@ -3,5 +3,4 @@
 int fcc(void)
 {
   return pthread_self();
-};
-
+}
