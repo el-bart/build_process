@@ -14,5 +14,4 @@
 void Fooer::reset(void)
 {
     resetTo(0);
-};
-
+}

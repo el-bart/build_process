@@ -16,6 +16,9 @@ export TC:=intel
 #export WITH_CCACHE:=1
 
 # project-specific flags
-export USER_OPT_FLAGS:=-DSOME_PROJECT_SPECIFIC_OPTION
-export USER_DBG_FLAGS:=-DSOME_PROJECT_SPECIFIC_OPTION
-export USER_PRF_FLAGS:=-DSOME_PROJECT_SPECIFIC_OPTION
+# disable some of icc remarks, that do not make much sense most of the time.
+TMP:=-wd177,279,383,981,1418
+export USER_OPT_FLAGS:=-DSOME_PROJECT_SPECIFIC_OPTION $(TMP)
+export USER_DBG_FLAGS:=-DSOME_PROJECT_SPECIFIC_OPTION $(TMP)
+export USER_PRF_FLAGS:=-DSOME_PROJECT_SPECIFIC_OPTION $(TMP)
+unexport TMP
