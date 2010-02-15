@@ -1,3 +1,6 @@
+-- ?? --
+* added user (project) specific link flags.
+
 -- v1.3.0 --
 * fixed display of available toolchains, when wrong is given.
 * intel's icc toolchain is now supported.
