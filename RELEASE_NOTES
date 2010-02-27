@@ -1,3 +1,6 @@
+-- v1.3.1 --
+* fixed problem with small-prjs-build when no directories where present (just files).
+
 -- v1.3.0 --
 * fixed display of available toolchains, when wrong is given.
 * intel's icc toolchain is now supported.
