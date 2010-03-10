@@ -19,7 +19,8 @@ endif
 define run-in-gen
 	@echo
 	@echo "##### build $@"
-	mkdir -p `find . -type d | grep -v './\.' | \
+	mkdir -p "$(GENDIR)/$@" \
+	          `find . -type d | grep -v './\.' | \
 	          grep -v '^\./gen/' | grep -v '^\./gen$$' | \
 			  grep -v '^\.$$' | sed 's:^\./:$(GENDIR)/$@/:'`
 	+$(MAKE) $(MFLAGS) -C "$(GENDIR)/$@" -f "$(CURDIR)/Makefile" \
