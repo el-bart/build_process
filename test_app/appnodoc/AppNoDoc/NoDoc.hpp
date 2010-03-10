@@ -7,7 +7,7 @@ namespace AppNoDoc
 
 struct NoDoc
 {
-  int iAmNotDocumented(void)
+  int iAmNotDocumented(void) const
   {
     return 13;
   }
