@@ -3,10 +3,10 @@
 # external components that are not docummented full, or sometimes at all.
 #
 # to use this mode add following line to user_pre.mk file in component's dir:
-# include $(BUILD_PROCESS_COMPONENTS_MODS_DIR)/no_doxygen.mk
+# include $(MAKEFILES_COMPONENT_MODS_DIR)/no_doxygen.mk
 #
 html/index.html:: Doxyfile
-	@echo "note: suppressing doxygen warnings"
+	@echo "(note: suppressing doxygen warnings for this component)"
 	@cp 'Doxyfile' 'Doxyfile.prev'
 	@sed -e 's:^\(WARNINGS \+=\).*:\1 NO:' \
 	     -e 's:^\(WARN_IF_UNDOCUMENTED \+=\).*:\1 NO:' \

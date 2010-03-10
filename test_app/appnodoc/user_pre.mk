@@ -1,1 +1,1 @@
-include $(BUILD_PROCESS_COMPONENTS_MODS_DIR)/no_doxygen.mk
+include $(MAKEFILES_COMPONENT_MODS_DIR)/no_doxygen.mk
