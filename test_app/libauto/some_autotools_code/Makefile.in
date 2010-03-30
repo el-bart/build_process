@@ -1,9 +1,0 @@
-.PHONY: all
-all: some_code.o
-
-some_code.o: some_code.c some_code.h
-	$(CC) $(CFLAGS) -c some_code.c
-
-.PHONY: clean
-clean:
-	rm -vf some_code.o

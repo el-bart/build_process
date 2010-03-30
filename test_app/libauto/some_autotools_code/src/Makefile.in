@@ -1,0 +1,18 @@
+.PHONY: all
+all: libsome_code.a
+
+libsome_code.a: some_code.o
+	$(AR) -r "$@" $^
+
+some_code.o: some_code.c some_code.h
+	$(CC) $(CFLAGS) -c some_code.c
+
+PREFIX:=@prefix@
+.PHONY: install
+install: all
+	mkdir -p "$(PREFIX)"
+	cp -v libsome_code.a "$(PREFIX)"
+
+.PHONY: clean
+clean:
+	rm -vf some_code.o libsome_code.a

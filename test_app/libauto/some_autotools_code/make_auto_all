@@ -1,5 +1,6 @@
 #!/bin/bash -v
 set -e
-autoscan
-cp configure.scan configure.ac
+aclocal
 autoconf
+touch AUTHORS NEWS README ChangeLog
+automake --add-missing
