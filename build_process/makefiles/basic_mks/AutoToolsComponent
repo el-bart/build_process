@@ -45,17 +45,17 @@ copy_libs_time_stamp: install_time_stamp
 
 install_time_stamp: build_time_stamp
 	@echo "BUILD $(COMPONENT_NAME): install"
-	@{ cd "ext_sources" && $(MAKE) install MAKEOVERRIDES= MAKEFLAGS= 2>&1 ; } #> install.log
+	@cd "ext_sources" && $(MAKE) install $(MAKE_INSTALL_OPTIONS) MAKEOVERRIDES= MAKEFLAGS= 2>&1
 	@date > "$@"
 
 build_time_stamp: configure_time_stamp
 	@echo "BUILD $(COMPONENT_NAME): build"
-	@{ cd "ext_sources" && $(MAKE) MAKEOVERRIDES= MAKEFLAGS= 2>&1 ; } #> build.log
+	@cd "ext_sources" && $(MAKE) $(MAKE_OPTIONS) MAKEOVERRIDES= MAKEFLAGS= 2>&1
 	@date > "$@"
 
 configure_time_stamp: copy_time_stamp
 	@echo "BUILD $(COMPONENT_NAME): init"
-	@{ cd "ext_sources" && ./configure --prefix="$(CURDIR)/installed" ; } #> configure.log
+	@cd "ext_sources" && ./configure $(CONFIGURE_OPTIONS) --prefix="$(CURDIR)/installed"
 	@date > "$@"
 
 copy_time_stamp: $(shell find "$(THIS_SRC_BASE_DIR)" -type f)
