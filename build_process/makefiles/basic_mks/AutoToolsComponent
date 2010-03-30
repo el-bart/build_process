@@ -1,0 +1,53 @@
+# TODO: check if this cannot be made partially common with libs/apps makefiles
+
+ifeq (,$(filter $(GEN_BASE_DIR)/%,$(basename $(CURDIR))))
+# part invoked in source dir
+
+# this will be application
+COMPONENT_NAME:=$(shell basename $(CURDIR))
+TEST_PROGRAM_NAME:=$(COMPONENT_NAME).t
+export COMPONENT_NAME \
+       TEST_PROGRAM_NAME
+
+# look for sources in this lib
+include $(MAKEFILES_COMMON_BASE_DIR)/source_finder.mk
+
+include $(MAKEFILES_COMMON_BASE_DIR)/targets.mk
+
+else
+# part invoked in gen dir
+
+# include user_pre makefile, if it exists
+-include $(THIS_SRC_BASE_DIR)/user_pre.mk
+
+.PHONY: doc
+doc:
+	@echo "BUILD $(COMPONENT_NAME): ignoring doc"
+
+.PHONY: all test mtest
+all test mtest: install_time_stamp
+
+install_time_stamp: build_time_stamp
+	@echo "BUILD $(COMPONENT_NAME): install"
+	@cd "ext_sources" && make install
+	@date > "$@"
+
+build_time_stamp: configure_time_stamp
+	@echo "BUILD $(COMPONENT_NAME): build"
+	@cd "ext_sources" && make
+	@date > "$@"
+
+configure_time_stamp: copy_time_stamp
+	@echo "BUILD $(COMPONENT_NAME): init"
+	@cd "ext_sources" && ./configure --prefix=/tmp/AAAAAA
+	@date > "$@"
+
+copy_time_stamp:
+	@echo "COPY $(COMPONENT_NAME) sources"
+	@cp -ruap "`ls $(THIS_SRC_BASE_DIR)/*/configure | head -1 | xargs dirname`" "ext_sources"
+	@date > "$@"
+
+# include user_post makefile, if it exists
+-include $(THIS_SRC_BASE_DIR)/user_post.mk
+
+endif
