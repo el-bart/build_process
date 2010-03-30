@@ -4,8 +4,8 @@ all: libauto.a
 libauto.a: some_code.o
 	$(AR) -r "$@" $^
 
-some_code.o: some_code.c some_code.h
-	$(CC) $(CFLAGS) -c some_code.c
+some_code.o: some_code.c some_code.h subdir/some_sub_include.h
+	$(CC) $(CFLAGS) -c some_code.c -Isubdir
 
 PREFIX:=@prefix@
 .PHONY: install
@@ -14,6 +14,8 @@ install: all
 	@cp -v libauto.a "$(PREFIX)/lib"
 	@mkdir -p "$(PREFIX)/usr/include"
 	@cp -v some_code.h "$(PREFIX)/usr/include"
+	@mkdir -p "$(PREFIX)/usr/include/subdir"
+	@cp -v subdir/some_sub_include.h "$(PREFIX)/usr/include/subdir"
 
 .PHONY: clean
 clean:
