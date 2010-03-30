@@ -1,0 +1,5 @@
+#!/bin/bash -v
+set -e
+autoscan
+cp configure.scan configure.ac
+autoconf
