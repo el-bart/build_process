@@ -1,3 +1,6 @@
+-- ?? --
+* added user-provided events before runnign configure and after running installation of auto-tools based component.
+
 -- v.1.4.0 --
 * added user (project) specific link flags.
 * implemented component-mods feature.
