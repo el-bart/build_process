@@ -1,7 +1,7 @@
 .PHONY: all
-all: libsome_code.a
+all: libauto.a
 
-libsome_code.a: some_code.o
+libauto.a: some_code.o
 	$(AR) -r "$@" $^
 
 some_code.o: some_code.c some_code.h
@@ -11,7 +11,7 @@ PREFIX:=@prefix@
 .PHONY: install
 install: all
 	@mkdir -p "$(PREFIX)/lib"
-	@cp -v libsome_code.a "$(PREFIX)/lib"
+	@cp -v libauto.a "$(PREFIX)/lib"
 	@mkdir -p "$(PREFIX)/usr/include"
 	@cp -v some_code.h "$(PREFIX)/usr/include"
 

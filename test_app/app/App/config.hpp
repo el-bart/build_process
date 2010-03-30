@@ -7,5 +7,10 @@
 
 #define NAME "programik"
 
+#include "some_code.h"
+
+// auto - lib call
+int xyz=some_code(69);
+
 #endif
 
