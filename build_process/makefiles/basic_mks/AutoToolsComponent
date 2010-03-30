@@ -20,6 +20,8 @@ else
 # include user_pre makefile, if it exists
 -include $(THIS_SRC_BASE_DIR)/user_pre.mk
 
+
+
 .PHONY: doc
 doc:
 	@echo "BUILD $(COMPONENT_NAME): ignoring doc"
@@ -41,12 +43,12 @@ copy_libs_time_stamp: install_time_stamp
 
 install_time_stamp: build_time_stamp
 	@echo "BUILD $(COMPONENT_NAME): install"
-	@{ cd "ext_sources" && $(MAKE) install 2>&1 ; } > install.log
+	@{ cd "ext_sources" && $(MAKE) install MAKEOVERRIDES= MAKEFLAGS= 2>&1 ; } > install.log
 	@date > "$@"
 
 build_time_stamp: configure_time_stamp
 	@echo "BUILD $(COMPONENT_NAME): build"
-	@{  $(MAKE) -C "ext_sources" 2>&1 ; } > build.log
+	@{ cd "ext_sources" && $(MAKE) MAKEOVERRIDES= MAKEFLAGS= 2>&1 ; } > build.log
 	@date > "$@"
 
 configure_time_stamp: copy_time_stamp
