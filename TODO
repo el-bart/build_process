@@ -6,7 +6,6 @@
 32 add support for distcc.
 35 think how to implement components in subdirectories (i.e. input/Impl1 with namespaces Input::Impl1).
 48 fix problem with passing some flags to make, like 'make -k'.
-52 optimize computing flags for dependent components using pre-compiled flag-files.
 53 support for testing in C only (.t.c and .mt.c) - low priority.
 56 think about support for precompiled headers.
 57
