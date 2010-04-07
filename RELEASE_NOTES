@@ -1,7 +1,17 @@
--- ?? --
+-- v1.5.1 --
+* auto-tools components are now non-verbose (this prevents screen from flooding with compilation details).
+
+-- v1.5.0 --
+* added user-provided events before runnign configure and after running installation of auto-tools based component.
+* -Werror is not propagated to external (auto-tools-based) components, since they almost always cause problems.
+* CDEPS computation has been optimized - it's now ~4 times faster.
+* added distcc support (via WITH_DISTCC make option).
+
+-- v1.4.0 --
 * added user (project) specific link flags.
 * implemented component-mods feature.
 * added no-doxygen component mod, for disabling warnings from doxygen on certian (ex.: external) components.
+* automated support for auto-tools based externa components is now available.
 
 -- v1.3.1 --
 * fixed problem with small-prjs-build when no directories where present (just files).
