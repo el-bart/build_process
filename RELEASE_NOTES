@@ -1,3 +1,6 @@
+-- v1.5.1 --
+* auto-tools components are now non-verbose (this prevents screen from flooding with compilation details).
+
 -- v1.5.0 --
 * added user-provided events before runnign configure and after running installation of auto-tools based component.
 * -Werror is not propagated to external (auto-tools-based) components, since they almost always cause problems.
