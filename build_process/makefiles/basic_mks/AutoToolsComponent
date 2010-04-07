@@ -52,19 +52,19 @@ copy_libs_time_stamp: install_time_stamp
 install_time_stamp: build_time_stamp
 	@touch install.log
 	@echo "BUILD $(COMPONENT_NAME): install (`readlink -f install.log`)"
-	@cd "ext_sources" && $(MAKE) install $(MAKE_INSTALL_OPTIONS) MAKEOVERRIDES= MAKEFLAGS= > install.log 2>&1
+	@( cd "ext_sources" && $(MAKE) install $(MAKE_INSTALL_OPTIONS) MAKEOVERRIDES= MAKEFLAGS= ) > install.log 2>&1
 	@date > "$@"
 
 build_time_stamp: configure_time_stamp
 	@touch build.log
 	@echo "BUILD $(COMPONENT_NAME): build (`readlink -f build.log`)"
-	@cd "ext_sources" && $(MAKE) $(MAKE_OPTIONS) MAKEOVERRIDES= MAKEFLAGS= > build.log 2>&1
+	@( cd "ext_sources" && $(MAKE) $(MAKE_OPTIONS) MAKEOVERRIDES= MAKEFLAGS= ) > build.log 2>&1
 	@date > "$@"
 
 configure_time_stamp: copy_time_stamp pre_configure.dep
 	@touch init.log
 	@echo "BUILD $(COMPONENT_NAME): init (`readlink -f init.log`)"
-	@cd "ext_sources" && ./configure $(CONFIGURE_OPTIONS) --prefix="$(CURDIR)/installed" > init.log 2>&1
+	@( cd "ext_sources" && ./configure $(CONFIGURE_OPTIONS) --prefix="$(CURDIR)/installed" ) > init.log 2>&1
 	@date > "$@"
 
 copy_time_stamp: $(shell find "$(THIS_SRC_BASE_DIR)" -type f)
