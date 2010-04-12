@@ -21,6 +21,7 @@ html/index.html:: Doxyfile $(ALL_MODE_SOURCES)
 
 Doxyfile:
 	@echo "DOXY  $@"
+	rm -f "$@"
 	$(DOXYGEN) -g "$@.def" > /dev/null
 	sed -e "s:^\(INPUT \+=\).*:\1 $(THIS_SRC_BASE_DIR):" \
 		-e "s:^\(RECURSIVE \+=\).*:\1 YES:" \
@@ -32,7 +33,8 @@ Doxyfile:
 		-e "s:^\(HAVE_DOT \+=\).*:\1 YES:" \
 		-e "s:^\(UML_LOOK \+=\).*:\1 YES:" \
 		-e "s:^\(GENERATE_LATEX \+=\).*:\1 NO:" \
-		"$@.def" > "$@" || ( rm -f "$@" ; false )
+		"$@.def" > "$@.mod"
+	mv "$@.mod" "$@"
 
 LIBS_GEN_DEPS:=$(wildcard $(DEP_LIBS_WC)) $(GEN_LIBS_DIR)/$(LIBRARY_NAME)
 
