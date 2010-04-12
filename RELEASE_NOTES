@@ -1,5 +1,6 @@
 -- v?? --
 * reorganized component dependencies backend to allow better parallelism (ex. building object files while linking dependent libraries).
+* auto-tools based components now obey V=1 make flag (verbose mode).
 * minor code fixes.
 
 -- v1.5.1 --
