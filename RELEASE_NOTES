@@ -1,4 +1,5 @@
 -- v?? --
+* reorganized component dependencies backend to allow better parallelism (ex. building object files while linking dependent libraries).
 * minor code fixes.
 
 -- v1.5.1 --

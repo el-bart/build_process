@@ -7,5 +7,4 @@
 48 fix problem with passing some flags to make, like 'make -k'.
 53 support for testing in C only (.t.c and .mt.c) - low priority.
 56 think about support for precompiled headers.
-57 consider spliting build of component into compilation and linking, so that compiation of dependent libraries may go in parallel (with waiting for linking, if needed).
 58
