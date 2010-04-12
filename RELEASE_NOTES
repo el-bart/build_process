@@ -1,3 +1,6 @@
+-- v?? --
+* minor code fixes.
+
 -- v1.5.1 --
 * auto-tools components are now non-verbose (this prevents screen from flooding with compilation details).
 
