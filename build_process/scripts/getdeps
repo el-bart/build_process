@@ -101,7 +101,6 @@ fi
 # reverse dependencies order, so that it whould be more natural for make to prefer building
 # base components as first, so that linking won't group at the compilation's end.
 RDEPS="`echo "$DEPS" | awk '{ for(i=NF; i>0; --i) printf("%s ", $i) ; print "" }'`"
-echo "X: $DEPS -> $RDEPS" >&2
 
 # write to file
 cat<<EOF > "$out"
