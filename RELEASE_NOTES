@@ -1,3 +1,6 @@
+-- ?? --
+* libraries that have only headers changed are not relinked now (no need to do so).
+
 -- v1.6.0 --
 * reorganized component dependencies backend to allow better parallelism (ex. building object files while linking dependent libraries).
 * component dependencies are now computed much faster for bigger projects.
