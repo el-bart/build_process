@@ -1,3 +1,13 @@
+-- ?? --
+* libraries that have only headers changed are not relinked now (no need to do so).
+
+-- v1.6.0 --
+* reorganized component dependencies backend to allow better parallelism (ex. building object files while linking dependent libraries).
+* component dependencies are now computed much faster for bigger projects.
+* auto-tools based components now obey V=1 make flag (verbose mode).
+* output form slightly improved in few places.
+* minor code fixes.
+
 -- v1.5.1 --
 * auto-tools components are now non-verbose (this prevents screen from flooding with compilation details).
 
