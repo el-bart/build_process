@@ -7,4 +7,5 @@
 48 fix problem with passing some flags to make, like 'make -k'.
 53 support for testing in C only (.t.c and .mt.c) - low priority.
 56 think about support for precompiled headers.
-59
+59 fix no relinking when *_dynamic_link file has changed.
+60
