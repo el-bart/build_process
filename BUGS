@@ -1,3 +1,2 @@
 1 spaces in path ot projects directory are not allowed.
-2 when calling 'clean' target on already cleaned profile dependencies are generated and then deleted.
 3
