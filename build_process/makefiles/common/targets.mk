@@ -1,7 +1,7 @@
 # makro for common calls
 define run-in-gen
 	# make gen/ dir structure for source files
-	GEN_NOW="$(GEN_BASE_DIR)/$@_$(TC)_$(MEM_CHECK)/`basename $(CURDIR)`" && \
+	GEN_NOW="$(GEN_WORK_ROOT)/`basename $(CURDIR)`" && \
 		mkdir -p "$$GEN_NOW" && cd "$$GEN_NOW" && \
 		mkdir -p . $(SOURCE_DIRS)
 	# make gen dir
