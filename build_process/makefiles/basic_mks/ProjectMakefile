@@ -18,31 +18,6 @@ include $(MAKEFILES_COMMON_BASE_DIR)/rules.mk
 # define main macros used within this Makefile
 include $(MAKEFILES_COMMON_BASE_DIR)/main_macros.mk
 
-# check if clean is to be performed and if so run it in separate make instance.
-ifneq (, $(filter clean, $(MAKECMDGOALS)))
-
-$(warning cleaning... $(MAKE) $(MFLAGS) clean.implementation )					
-TMP:=$(shell $(MAKE) $(MFLAGS) clean.implementation)
-$(warning cleaning\'s done)							
-$(warning building: $(MAKE) $(MFLAGS) $(filter-out clean, $(MAKECMDGOALS)))		
-TMP:=$(shell $(MAKE) $(MFLAGS) $(filter-out clean, $(MAKECMDGOALS)))
-TMP:=
-$(warning all done)			
-
-else # has no 'clean target'
-
-ifeq (clean.implementation, $(MAKECMDGOALS))
-$(warning clean.impl: $(MAKECMDGOALS))						
-
-.PHONY: clean.implementation
-clean.implementation:							
-	echo AAAAAAAAA
-	@rm -rfv $(GEN_BASE_DIR)/$(PROFILE)_$(TC)_$(MEM_CHECK)
-
-else # non 'clean.implemenation' run - do regular stuff
-
-$(warning NO clean: $(MAKECMDGOALS))						
-
 # make all dependencies for all components in gen
 TMP:=$(shell mkdir -p "$(GEN_COMPONENTS_DEPS_DIR)" && \
              $(MAKE_COMPONENTDEPS_SCRIPT) \
@@ -62,5 +37,9 @@ include $(MAKEFILES_COMMON_BASE_DIR)/pre_build.mk
 # include all generated component-dependencies
 include $(wildcard $(GEN_COMPONENTS_DEPS_DIR)/[^_]*.mk)
 
-endif # if has 'clean.implementation' goal
-endif # if has 'clean' goal
+
+# clean specific profile
+.PHONY: clean
+clean:
+	rm -rfv $(GEN_BASE_DIR)/$(PROFILE)_$(TC)_$(MEM_CHECK)
+
