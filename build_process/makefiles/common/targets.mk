@@ -7,7 +7,7 @@ define run-in-gen
 	# make gen dir
 	mkdir -p "$(GEN_LIBS_DIR)"
 	# run
-	+$(MAKE) $(MFLAGS) -C "$(GEN_BASE_DIR)/$@_$(TC)_$(MEM_CHECK)/`basename $(CURDIR)`" \
+	+$(MAKE) $(MFLAGS) -C "$(GEN_WORK_ROOT)/`basename $(CURDIR)`" \
 		-f "$(CURDIR)/Makefile" TARGET=$@ $(TARGET) \
 		STRIP_BINARY=$(STRIP_BINARY) \
 		DEP_LIBS_WC="$(DEP_LIBS_WC)" \
