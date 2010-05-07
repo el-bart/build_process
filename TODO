@@ -1,10 +1,9 @@
 10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
 19 add doc file with description to project too (not only on web).
 20 consider support for bcov (gcov?) integration with build process.
-27 implement more scalable split backend functionality (enable/disable feature in given component).
 30 add parameter that forces component to rebuild
 35 think how to implement components in subdirectories (i.e. input/Impl1 with namespaces Input::Impl1).
-48 fix problem with passing some flags to make, like 'make -k'.
 53 support for testing in C only (.t.c and .mt.c) - low priority.
 56 think about support for precompiled headers.
-59
+59 fix no relinking when *_dynamic_link file has changed.
+60

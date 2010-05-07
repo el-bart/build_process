@@ -5,6 +5,6 @@ using namespace std;
 
 void call(void)
 {
-  cout<<"HELLo?\n";
+  cout<<"HELLo feature 2?\n";
 }
 
