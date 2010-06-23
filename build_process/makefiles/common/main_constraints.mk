@@ -40,8 +40,8 @@ endif
 #
 # does given features exist?
 #
-ALL_EXISTING_FEATURES:=$(shell for c in `cat $(COMPONENTS_LISTS) 2>/dev/null` ; do cd "$$c/features/modes/features" 2>/dev/null && ls ; done )
-NON_EXISTING_FEATURES:=$(shell for c in $(FEATURES) ; do echo " $(ALL_EXISTING_FEATURES) " | grep -q " $$c " || echo "$$c" ; done)
-ifneq ($(NON_EXISTING_FEATURES),)
-$(error following features does NOT exist: $(NON_EXISTING_FEATURES) (NOTE: available are: $(ALL_EXISTING_FEATURES)))
+ALL_EXISTING_FEATURES_LIST:=$(shell for c in `cat $(COMPONENTS_LISTS) 2>/dev/null` ; do ls "$$c/features/modes/features" 2>/dev/null ; done )
+NON_EXISTING_FEATURES_LIST:=$(filter-out $(ALL_EXISTING_FEATURES_LIST),$(FEATURES))
+ifneq ($(NON_EXISTING_FEATURES_LIST),)
+$(error following features does NOT exist: $(NON_EXISTING_FEATURES_LIST) (NOTE: available are: $(ALL_EXISTING_FEATURES_LIST)))
 endif
