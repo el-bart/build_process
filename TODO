@@ -5,6 +5,5 @@
 35 think how to implement components in subdirectories (i.e. input/Impl1 with namespaces Input::Impl1).
 53 support for testing in C only (.t.c and .mt.c) - low priority.
 56 think about support for precompiled headers.
-59 fix no relinking when *_dynamic_link file has changed.
 60 add support for assertion's testing.
-61
+62

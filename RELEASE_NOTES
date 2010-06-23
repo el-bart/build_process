@@ -1,10 +1,13 @@
--- ?? --
+-- v1.7.0 --
 * build mode is now present in build directories in gen, to destiguisg those builds.
 * added 'features' to allows build of special parts of code on demand (i.e. turn them on/off) by specifing which files should build).
 * automatic link with last 'features' set build with a short name (compatible with previous releases).
 * libraries that have only headers changed are not relinked now (no need to do so).
 * fixed problem when 'clean' target built components' dependencies first and then removed them.
 * fixed problem with passing flags to make, like '-k'.
+* build process now checks if all required features do exist in at least one component.
+* sources now rebuild when compilation flags changes (from deps).
+* binaries now relinks when link falgs changes (from deps).
 
 -- v1.6.0 --
 * reorganized component dependencies backend to allow better parallelism (ex. building object files while linking dependent libraries).
