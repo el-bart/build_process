@@ -1,3 +1,7 @@
+# components list file
+COMPONENTS_LISTS:=$(BUILD_CONFIG_BASE_DIR)/components.lst \
+                  $(BUILD_CONFIG_BASE_DIR)/components_$(PROFILE).lst
+
 #
 # is any profile set?
 #
@@ -35,4 +39,13 @@ ifneq (,$(WITH_CCACHE))
  $(shell echo "WARNING: you have been warned."                                                      >&2)
  $(shell echo "-----------------------------------------------------------------------------------" >&2)
 endif
+endif
+
+#
+# does given features exist?
+#
+ALL_EXISTING_FEATURES:=$(shell for c in `cat $(COMPONENTS_LISTS) 2>/dev/null` ; do cd "$$c/features/modes/features" 2>/dev/null && ls ; done )
+NON_EXISTING_FEATURES:=$(shell for c in $(FEATURES) ; do echo " $(ALL_EXISTING_FEATURES) " | grep -q " $$c " || echo "$$c" ; done)
+ifneq ($(NON_EXISTING_FEATURES),)
+$(error following features does NOT exist: $(NON_EXISTING_FEATURES) (NOTE: available are: $(ALL_EXISTING_FEATURES)))
 endif

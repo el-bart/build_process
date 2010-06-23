@@ -9,8 +9,6 @@ define build-this-component
 		$(PROFILE)
 
 endef
-
-
 #
 # automatization of dependencies generation
 #
@@ -21,6 +19,3 @@ COMPONENT_DEPS_REL_PATH=$(SRC_FEATURES_DEPS_FULL_SURFIX)/$(PROFILE)
 # shell expanding variable to find deps
 FIND_DEPS_FOR_THIS_COMPONENT=$(shell \
     $(GETDEPS_SCRIPT) $(THIS_COMPONENT) $(COMPONENT_DEPS_REL_PATH))
-# components list file
-COMPONENTS_LISTS:=$(BUILD_CONFIG_BASE_DIR)/components.lst \
-                  $(BUILD_CONFIG_BASE_DIR)/components_$(PROFILE).lst
