@@ -6,6 +6,8 @@
 * fixed problem when 'clean' target built components' dependencies first and then removed them.
 * fixed problem with passing flags to make, like '-k'.
 * build process now checks if all required features do exist in at least one component.
+* sources now rebuild when compilation flags changes (from deps).
+* binaries now relinks when link falgs changes (from deps).
 
 -- v1.6.0 --
 * reorganized component dependencies backend to allow better parallelism (ex. building object files while linking dependent libraries).

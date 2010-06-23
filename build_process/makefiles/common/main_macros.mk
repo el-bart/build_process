@@ -5,8 +5,10 @@ define build-this-component
 	+$(MAKE) $(MFLAGS) -C "$(COMPONENT_DIR)" \
 		LINK_LIBS="$(LINK_LIBS)" \
 		DEP_LIBS_WC="$(DEP_LIBS_WC)" \
-		COMPONENT_PART=$(COMPONENT_PART) \
-		$(PROFILE)
+		COMPONENT_PART="$(COMPONENT_PART)" \
+		DEP_WLD_COMPILE="$(DEP_WLD_COMPILE)" \
+		DEP_WLD_LINK="$(DEP_WLD_LINK)" \
+		"$(PROFILE)"
 
 endef
 #
