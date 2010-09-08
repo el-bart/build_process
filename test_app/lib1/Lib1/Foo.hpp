@@ -17,8 +17,7 @@ public:
      */
     unsigned int size(void) const;
 
-    /** brief table of entries
-     */
+    /** \brief table of entries.  */
     int a[3];
 };
 
