@@ -1,4 +1,5 @@
 -- ?? --
+* fixed issue with not re-running pre_configure.dep target when re-building component after a change.
 
 -- v1.7.0 --
 * build mode is now present in build directories in gen, to destiguisg those builds.

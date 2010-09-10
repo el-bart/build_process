@@ -6,4 +6,5 @@
 53 support for testing in C only (.t.c and .mt.c) - low priority.
 56 think about support for precompiled headers.
 60 add support for assertion's testing.
-62
+62 write troubleshooting faq for begginers.
+63
