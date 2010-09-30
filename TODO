@@ -1,11 +1,10 @@
-10 add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
-19 add doc file with description to project too (not only on web).
-20 consider support for bcov (gcov?) integration with build process.
-30 add parameter that forces component to rebuild
-35 think how to implement components in subdirectories (i.e. input/Impl1 with namespaces Input::Impl1).
-53 support for testing in C only (.t.c and .mt.c) - low priority.
-56 think about support for precompiled headers.
-60 add support for assertion's testing.
-62 write troubleshooting faq for begginers.
-63 consider adding automatic resuorce loading to program: objcopy -I binary -O elf32-i386 asdf.txt asdf.o --alt-machine-code=3 --redefine-sym=_binary_asdf_txt_start=content_of_asdf extern const char content_of_asdf[];
-64
+* add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
+* add doc file with description to project too (not only on web).
+* consider support for bcov (gcov?) integration with build process.
+* add parameter that forces component to rebuild
+* think how to implement components in subdirectories (i.e. input/Impl1 with namespaces Input::Impl1).
+* support for testing in C only (.t.c and .mt.c) - low priority.
+* think about support for precompiled headers.
+* add support for assertion's testing.
+* write troubleshooting faq for begginers.
+* consider adding automatic resuorce loading to program: objcopy -I binary -O elf32-i386 asdf.txt asdf.o --alt-machine-code=3 --redefine-sym=_binary_asdf_txt_start=content_of_asdf extern const char content_of_asdf[];
