@@ -8,3 +8,4 @@
 * write troubleshooting faq for begginers.
 * consider adding automatic resuorce loading to program: objcopy -I binary -O elf32-i386 asdf.txt asdf.o --alt-machine-code=3 --redefine-sym=_binary_asdf_txt_start=content_of_asdf extern const char content_of_asdf[];
 * add support for separating tests that last longer (*.lt.cpp?).
+* refactor code so that flags passed to make can be only in form yes/no.
