@@ -1,4 +1,4 @@
--- ?? --
+-- v1.7.1 --
 * fixed issue with not re-running pre_configure.dep target when re-building component after a change.
 * added host-specific optimization flags for gcc and icc compilers.
 
