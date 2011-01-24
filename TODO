@@ -10,3 +10,4 @@
 * add support for separating tests that last longer (*.lt.cpp?).
 * refactor code so that flags passed to make can be only in form yes/no.
 * add support for code coverage with bcov - enable code coverage only for selected piece of code.
+* add option of dependencies on system libraries as well.
