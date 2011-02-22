@@ -1,4 +1,5 @@
 -- ?? --
+* dependencies now include system headers.
 * since icc 12.0.0 is fixed and works fine with ccache, warning is displayed only if older version is detected.
 
 -- v1.7.1 --
