@@ -1,4 +1,5 @@
 -- ?? --
+* dependencies now include system headers.
 * since icc 12.0.0 is fixed and works fine with ccache, warning is displayed only if older version is detected.
 * gcc toolchain is now 'gcc' (name 'local' is depreacted form now on - proper warning is shown, when used).
 
