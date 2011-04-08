@@ -12,3 +12,4 @@
 * add support for code coverage with bcov - enable code coverage only for selected piece of code.
 * add option of dependencies on system libraries as well.
 * add build target creating documentation for whole project in one place (alldoc?).
+* consider adding clang to toolchains support.
