@@ -1,0 +1,6 @@
+#ifndef SOME_SUB_INCLUDE_H
+#define SOME_SUB_INCLUDE_H
+
+#define SOME_IMPORTANT_DEFINE 42
+
+#endif

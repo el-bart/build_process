@@ -1,0 +1,10 @@
+/*
+ * HeaderOnly.hpp
+ *
+ */
+#ifndef INCLUDE_LIB1_HEADERONLY_HPP_FILE
+#define INCLUDE_LIB1_HEADERONLY_HPP_FILE
+
+#define SOMETHING_SUPER_IMPORTANT 42
+
+#endif

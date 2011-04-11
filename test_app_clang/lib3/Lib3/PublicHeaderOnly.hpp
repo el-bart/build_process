@@ -1,0 +1,12 @@
+/*
+ * PublicHeaderOnly.hpp
+ *
+ */
+#ifndef INCLUDE_LIB1_PUBLICHEADERONLY_HPP_FILE
+#define INCLUDE_LIB1_PUBLICHEADERONLY_HPP_FILE
+
+/* public header */
+
+#define SOMETHING_EQUALY_SUPER_IMPORTANT 42
+
+#endif
