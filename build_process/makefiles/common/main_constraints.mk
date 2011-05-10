@@ -9,7 +9,7 @@ endif # PROFILE not set
 #
 # is any toolchain set?
 #
-TOOLCHAINS_LIST:=$(shell cd "$(MAKEFILES_TOOLCHAINS_BASE_DIR)" && ls | grep -v -- '-flags.mk' | sed 's:\.mk::g' | xargs echo)
+TOOLCHAINS_LIST:=$(shell cd "$(MAKEFILES_TOOLCHAINS_BASE_DIR)" && ls | xargs echo -n)
 ifneq ($(TC),$(findstring $(TC),$(TOOLCHAINS_LIST)))
 $(error toolchain (TC) not set (aviable are: $(TOOLCHAINS_LIST)))
 endif # TC not set
@@ -26,7 +26,7 @@ endif # TC not set
 #
 ifeq ($(TC),intel)
 ifneq (,$(WITH_CCACHE))
-include $(MAKEFILES_TOOLCHAINS_BASE_DIR)/$(TC).mk
+include $(MAKEFILES_TOOLCHAINS_BASE_DIR)/$(TC)/tools.mk
 # this warning is true only for ICC releaseses < 12.0.0
 ifneq (ok,$(shell $(CC) -dumpversion | sed 's:\..*::' | xargs test 12 -le && echo 'ok'))
  $(shell echo "-----------------------------------------------------------------------------------" >&2)
@@ -41,6 +41,24 @@ ifneq (ok,$(shell $(CC) -dumpversion | sed 's:\..*::' | xargs test 12 -le && ech
 endif # too old (i.e. buggy) icc version
 endif # with ccache
 endif # icc
+
+#
+# special casese for clang compiler
+#
+ifeq ($(TC),clang)
+# if 'release' profile is in use warn about -Werror disable
+ifeq ($(PROFILE),release)
+$(warning CLANG does not properly parse some valid C++ constructions, thus stopping)
+$(warning compilation on warning does not make sense. having this said '-Werror' flag)
+$(warning is disabled for now (i.e. until CLANG is fixed))
+CXX
+endif # release
+
+# stop build for 'profile' target, that is not supported by this toolchain
+ifeq ($(PROFILE),profile)
+$(error CLANG (as of 2011.05) does not support profiling)
+endif
+endif # clang
 
 #
 # does given features exist?
