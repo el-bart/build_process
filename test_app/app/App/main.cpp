@@ -10,6 +10,7 @@ extern "C"
 #include "config.hpp"
 #include "Lib1/Reg.hpp"
 #include "Lib3/Reg.hpp"
+#include "Lib3/PublicHeaderOnly.hpp"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ int main(void)
   Fooer fooer;
 
   print(fooer);
-  fooer.resetTo(10);
+  fooer.resetTo(SOMETHING_EQUALY_SUPER_IMPORTANT);
   print(fooer);
   fooer.reset();
   print(fooer);

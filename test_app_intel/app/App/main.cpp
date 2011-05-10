@@ -4,7 +4,7 @@
 extern "C"
 {
 #include "Lib1/old.h"
-};
+}
 #include "Lib1/subdir/Write.hpp"
 #include "Lib3/call.hpp"
 #include "config.hpp"

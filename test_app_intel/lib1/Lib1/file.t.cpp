@@ -36,7 +36,7 @@ template<>
 template<>
 void testObj::test<1>(void)
 {
-  ensure_equals("impossible condition", Lib1::file_in_cpp(), 42);
+  ensure_equals("impossible condition", Lib1::file_in_cpp(), 43);
 }
 
 } // namespace tut

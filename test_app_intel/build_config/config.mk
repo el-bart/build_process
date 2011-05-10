@@ -13,7 +13,7 @@ export PROFILE:=test
 export TC:=intel
 
 # enable ccache
-#export WITH_CCACHE:=1
+export WITH_CCACHE:=1
 
 # project-specific flags
 # disable some of icc remarks, that do not make much sense most of the time.

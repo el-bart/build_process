@@ -6,6 +6,9 @@
 # on http://www.baszerr.org, prjs -> build_process.
 #
 
+# ensure temporary files remain
+.SECONDARY:
+
 ifeq (,$(filter %/gen/$(TARGET),$(basename $(CURDIR))))
 #
 # main part, run in sources dir
@@ -38,16 +41,21 @@ VPATH+=$(SRCDIR)
 export GENDIR SRCDIR VPATH
 
 
-CXXSRCS_NOMAIN:=$(shell find . -iname '*.cpp' -exec grep -L '^int main' {} \; )
-CSRCS_NOMAIN  :=$(shell find . -iname '*.c'   -exec grep -L '^int main' {} \; )
-export CSRCS_NOMAIN CXXSRCS_NOMAIN
 CXXTESTSRCS:=$(shell find . -iname '*.t.cpp')
 CTESTSRCS  :=$(shell find . -iname '*.t.c'  )
 export CTESTSRCS CXXTESTSRCS
+CXXMTESTSRCS:=$(shell find . -iname '*.mt.cpp')
+CMTESTSRCS  :=$(shell find . -iname '*.mt.c'  )
+export CMTESTSRCS CXXMTESTSRCS
 
-CXXSRCS:=$(filter-out $(CXXTESTSRCS), $(shell find . -iname '*.cpp'))
-CSRCS  :=$(filter-out $(CTESTSRCS),   $(shell find . -iname '*.c'  ))
+CXXSRCS:=$(filter-out $(CXXTESTSRCS) $(CXXMTESTSRCS), $(shell find . -iname '*.cpp'))
+CSRCS  :=$(filter-out $(CTESTSRCS)   $(CMTESTSRCS),   $(shell find . -iname '*.c'  ))
 export CSRCS CXXSRCS
+
+CXXSRCS_NOMAIN:=$(shell echo $(CXXSRCS) | xargs -r grep -L '^int main')
+CSRCS_NOMAIN  :=$(shell echo $(CSRCS)   | xargs -r grep -L '^int main')
+export CSRCS_NOMAIN CXXSRCS_NOMAIN
+
 
 COMMON_FLAGS:=-Wall -I$(SRCDIR)
 
@@ -97,6 +105,13 @@ test: TARGET:=test
 test:
 	@$(run-in-gen)
 
+.PHONY: mtest
+mtest: CFLAGS+=-g3
+mtest: CXXFLAGS+=-g3
+mtest: TARGET:=mtest
+mtest:
+	@$(run-in-gen)
+
 .PHONY: clean
 clean:
 	@echo
@@ -117,6 +132,11 @@ CXXOBJS_NOMAIN+=$(CXXSRCS_NOMAIN:.cpp=.o)
 # test object files:
 CTESTOBJS  +=$(CTESTSRCS:.c=.o)
 CXXTESTOBJS+=$(CXXTESTSRCS:.cpp=.o)
+# mtest object files:
+CMTESTOBJS  +=$(CMTESTSRCS:.c=.o)
+CXXMTESTOBJS+=$(CXXMTESTSRCS:.cpp=.o)
+CMTESTOUTS  +=$(CMTESTSRCS:.c=.out)
+CXXMTESTOUTS+=$(CXXMTESTSRCS:.cpp=.out)
 
 # dep files:
 CDEPS  +=$(CSRCS:.c=.d)     $(CTESTSRCS:.c=.d)
@@ -129,8 +149,14 @@ all: $(PROGRAM_NAME)
 .PHONY: test
 test: $(TEST_PROGRAM_NAME)
 
-$(TEST_PROGRAM_NAME): $(CXXTESTOBJS) $(CTESTOBJS) \
-						$(CXXOBJS_NOMAIN) $(COBJS_NOMAIN)
+.PHONY: mtest
+mtest: $(CMTESTOUTS) $(CXXMTESTOUTS)
+
+$(TEST_PROGRAM_NAME): $(CXXTESTOBJS) $(CTESTOBJS) $(CXXOBJS_NOMAIN) $(COBJS_NOMAIN)
+	echo "LD  $@"
+	$(LD) $(LDFLAGS) -o $@ $^
+
+%.out: $(CXXOBJS_NOMAIN) $(COBJS_NOMAIN) %.o
 	echo "LD  $@"
 	$(LD) $(LDFLAGS) -o $@ $^
 

@@ -1,3 +1,28 @@
+-- ?? --
+
+-- v2.0.0 --
+* added clang toolchain support.
+* new, more general format of toolchains selection mechanism.
+* dependencies now include system headers.
+* since icc 12.0.0 is fixed and works fine with ccache, warning is displayed only if older version is detected.
+* gcc toolchain is now 'gcc' (name 'local' is depreacted form now on - proper warning is shown, when used).
+* small-projects-makefile now supports mtest target as well.
+
+-- v1.7.1 --
+* fixed issue with not re-running pre_configure.dep target when re-building component after a change.
+* added host-specific optimization flags for gcc and icc compilers.
+
+-- v1.7.0 --
+* build mode is now present in build directories in gen, to destiguisg those builds.
+* added 'features' to allows build of special parts of code on demand (i.e. turn them on/off) by specifing which files should build).
+* automatic link with last 'features' set build with a short name (compatible with previous releases).
+* libraries that have only headers changed are not relinked now (no need to do so).
+* fixed problem when 'clean' target built components' dependencies first and then removed them.
+* fixed problem with passing flags to make, like '-k'.
+* build process now checks if all required features do exist in at least one component.
+* sources now rebuild when compilation flags changes (from deps).
+* binaries now relinks when link falgs changes (from deps).
+
 -- v1.6.0 --
 * reorganized component dependencies backend to allow better parallelism (ex. building object files while linking dependent libraries).
 * component dependencies are now computed much faster for bigger projects.

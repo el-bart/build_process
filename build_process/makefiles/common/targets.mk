@@ -1,13 +1,13 @@
 # makro for common calls
 define run-in-gen
 	# make gen/ dir structure for source files
-	GEN_NOW="$(GEN_BASE_DIR)/$@_$(TC)_$(MEM_CHECK)/`basename $(CURDIR)`" && \
+	GEN_NOW="$(GEN_WORK_ROOT)/`basename $(CURDIR)`" && \
 		mkdir -p "$$GEN_NOW" && cd "$$GEN_NOW" && \
 		mkdir -p . $(SOURCE_DIRS)
 	# make gen dir
 	mkdir -p "$(GEN_LIBS_DIR)"
 	# run
-	+$(MAKE) $(MFLAGS) -C "$(GEN_BASE_DIR)/$@_$(TC)_$(MEM_CHECK)/`basename $(CURDIR)`" \
+	+$(MAKE) $(MFLAGS) -C "$(GEN_WORK_ROOT)/`basename $(CURDIR)`" \
 		-f "$(CURDIR)/Makefile" TARGET=$@ $(TARGET) \
 		STRIP_BINARY=$(STRIP_BINARY) \
 		DEP_LIBS_WC="$(DEP_LIBS_WC)" \
@@ -29,7 +29,7 @@ all:
 	@exit 1
 
 # include toolchain-specific flags
-include $(MAKEFILES_TOOLCHAINS_BASE_DIR)/$(TC)-flags.mk
+include $(MAKEFILES_TOOLCHAINS_BASE_DIR)/$(TC)/flags.mk
 # add project-specific flags
 OPT_FLAGS+=$(USER_OPT_FLAGS)
 DBG_FLAGS+=$(USER_DBG_FLAGS)

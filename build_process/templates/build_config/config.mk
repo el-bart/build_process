@@ -10,13 +10,18 @@ export MODE:=default
 export PROFILE:=test
 
 # set default toolchain
-export TC:=local
+export TC:=gcc
 
 # enable distcc
 #export WITH_DISTCC:=1
 
 # enable ccache
 export WITH_CCACHE:=1
+
+# default features set
+export FEATURES:= \
+    ans2 \
+    ft1
 
 # project-specific flags
 export USER_OPT_FLAGS:=-DSOME_PROJECT_SPECIFIC_OPTION
