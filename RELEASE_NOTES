@@ -1,4 +1,5 @@
--- ?? --
+-- v2.0.0 --
+* added clang toolchain support.
 * new, more general format of toolchains selection mechanism.
 * dependencies now include system headers.
 * since icc 12.0.0 is fixed and works fine with ccache, warning is displayed only if older version is detected.
