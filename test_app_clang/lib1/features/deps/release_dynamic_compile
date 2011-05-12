@@ -1,2 +1,0 @@
-#!/bin/sh
-echo -DLIB1_IN_RELEASE_MODE_ONLY

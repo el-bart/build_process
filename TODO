@@ -12,5 +12,3 @@
 * add support for code coverage with bcov - enable code coverage only for selected piece of code.
 * add build target creating documentation for whole project in one place (alldoc?).
 * add error handling when *_dynamic_* script fail.
-* consider adding clang to toolchains support.
-* mtest for smll projects makefile.

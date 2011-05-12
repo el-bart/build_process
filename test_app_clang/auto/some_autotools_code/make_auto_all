@@ -1,6 +1,0 @@
-#!/bin/bash -v
-set -e
-aclocal
-autoconf
-touch AUTHORS NEWS README ChangeLog
-automake --add-missing

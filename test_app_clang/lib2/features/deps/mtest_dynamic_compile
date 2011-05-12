@@ -1,2 +1,0 @@
-#!/bin/sh
-echo -DSOME_LIB2_SPECIAL_FLAG_FOR_MTESTS_ONLY

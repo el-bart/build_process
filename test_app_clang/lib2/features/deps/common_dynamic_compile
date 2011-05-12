@@ -1,2 +1,0 @@
-#!/bin/sh
-echo -I/common/dynamic/compile -DSOME_LIB2_SPECIAL_FLAG
