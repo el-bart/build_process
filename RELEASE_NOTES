@@ -1,5 +1,7 @@
 -- ?? --
-* fixed display of problem, when compilign with icc and gcc 4.5 libs.
+
+-- v2.0.2 --
+* fixed display of problem, when compiling with icc and gcc 4.5 libs.
 
 -- v2.0.1 --
 * added check for GCC-4.5 when using ICC - it does not compile, but can fallback to gcc-4.4 when present.
@@ -10,7 +12,7 @@
 * new, more general format of toolchains selection mechanism.
 * dependencies now include system headers.
 * since icc 12.0.0 is fixed and works fine with ccache, warning is displayed only if older version is detected.
-* gcc toolchain is now 'gcc' (name 'local' is depreacted form now on - proper warning is shown, when used).
+* gcc toolchain is now 'gcc' (name 'local' is deprecated form now on - proper warning is shown, when used).
 * small-projects-makefile now supports mtest target as well.
 
 -- v1.7.1 --
