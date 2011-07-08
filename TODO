@@ -4,10 +4,14 @@
 * think how to implement components in subdirectories (i.e. input/Impl1 with namespaces Input::Impl1).
 * think about support for precompiled headers.
 * add support for assertion's testing.
-* write troubleshooting faq for begginers.
-* consider adding automatic resuorce loading to program: objcopy -I binary -O elf32-i386 asdf.txt asdf.o --alt-machine-code=3 --redefine-sym=_binary_asdf_txt_start=content_of_asdf extern const char content_of_asdf[];
+* write troubleshooting faq for beginners.
+* consider adding automatic resource loading to program: objcopy -I binary -O elf32-i386 asdf.txt asdf.o --alt-machine-code=3 --redefine-sym=_binary_asdf_txt_start=content_of_asdf extern const char content_of_asdf[];
 * add support for separating tests that last longer (*.lt.cpp?).
 * refactor code so that flags passed to make can be only in form yes/no.
 * add support for code coverage with bcov - enable code coverage only for selected piece of code.
 * add build target creating documentation for whole project in one place (alldoc?).
 * add error handling when *_dynamic_* script fail.
+* make dependencies computation on demand (i.e. when required component is to be build; not for all by default, since not all components may be required to be build).
+* make new type of libraries: static+dynamic (i.e. both are build); useful in some systems.
+* add static-app linkage - application will have everything linked in statically.
+* add SECURITIES variable, that enables extra flags that makes program harder to hack; they usually mean slower code, thus cannot be simply enabled by default in release.
