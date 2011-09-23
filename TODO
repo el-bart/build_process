@@ -15,3 +15,4 @@
 * make new type of libraries: static+dynamic (i.e. both are build); useful in some systems.
 * add static-app linkage - application will have everything linked in statically.
 * add SECURITIES variable, that enables extra flags that makes program harder to hack; they usually mean slower code, thus cannot be simply enabled by default in release. options for start are: -fstack-protector-all -fpie -pie
+* add Jam build support (jam -s PREFIX=/a/b/c).
