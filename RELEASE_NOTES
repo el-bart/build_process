@@ -1,4 +1,8 @@
 -- ?? --
+* added detection for cycles when generating dependencies for the components. error is displayed on the screen.
+* fixed missing -fPIC for C-sources, when building shared library.
+* added script for dependency graphical visualization (build_process/misc/mk_deps_graph).
+* fixed issue with missing 'bits/predefs.h' header for icc and clang (machine-dependent includes dir is no win path explicitly).
 * updated error display when using old ICC with ccache.
 * updated error display when using old ICC with new GCC libs.
 
