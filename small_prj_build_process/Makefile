@@ -3,7 +3,7 @@
 #
 # this file is small a part of build_process package.
 # full-featured build_process is available on BSD license
-# on http://www.baszerr.org, prjs -> build_process.
+# on http://www.baszerr.eu, prjs -> build_process.
 #
 
 # ensure temporary files remain
@@ -167,12 +167,12 @@ $(PROGRAM_NAME): $(CXXOBJS) $(COBJS)
 # C++ source files:
 %.o: %.cpp $(SRCDIR)/Makefile
 	echo "CXX $*.cpp"
-	$(CXX) $(CXXFLAGS) -MMD -c "$(SRCDIR)/$*.cpp" -o "$@"
+	$(CXX) $(CXXFLAGS) -MD -c "$(SRCDIR)/$*.cpp" -o "$@"
 
 # C source files:
 %.o: %.c $(SRCDIR)/Makefile
 	echo "CC  $*.c"
-	$(CC) $(CFLAGS) -MMD -c "$(SRCDIR)/$*.c" -o "$@"
+	$(CC) $(CFLAGS) -MD -c "$(SRCDIR)/$*.c" -o "$@"
 
 
 # makefile depends on its include

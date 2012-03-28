@@ -1,3 +1,6 @@
+-- v?? --
+* small projects build process now keeps dependencies with system headers as well.
+
 -- v2.1.0 --
 * updated repository link.
 * added detection for cycles when generating dependencies for the components. error is displayed on the screen.
