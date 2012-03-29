@@ -18,3 +18,4 @@
 * add Jam build support (jam -s PREFIX=/a/b/c).
 * rework component depndencies so that they'll be generated with regular make's rules instead of current voodoo.
 * add support for google test framework.
+* add support for test-elements, related to given component, so that they can be in one place.
