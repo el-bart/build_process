@@ -18,3 +18,4 @@
 * add Jam build support (jam -s PREFIX=/a/b/c).
 * rework component depndencies so that they'll be generated with regular make's rules instead of current voodoo.
 * add support for google test framework.
+* add build_config/config-final.mk, include as a last one in project's Makefile (when all includes ared already expanded).
