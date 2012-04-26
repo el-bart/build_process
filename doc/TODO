@@ -21,3 +21,4 @@
 * add support for test-elements, related to given component, so that they can be in one place.
 * add build_config/config_final.mk, include as a last one in project's Makefile (when all includes ared already expanded).
 * add option to build only separate element of the library (ex. one file), for quick testing highly-templated code.
+* add simple makefile that builds all of the files into the separate executables (usefull for trivial examples and similar "nano projects").
