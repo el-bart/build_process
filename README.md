@@ -1,4 +1,1 @@
-build_process
-=============
-
-build process for C++ and C.
+doc/readme.txt

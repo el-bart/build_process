@@ -22,6 +22,6 @@ int main(void)
   ret+=print("wydruk 1");
   ret+=print("wydruk 200");
 
-  return someFunction()+ret;
+  return someFunction()+ret+c[0];
 };
 
