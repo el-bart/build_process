@@ -1,0 +1,25 @@
+* add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
+* add doc file with description to project too (not only on web).
+* add parameter that forces component to rebuild.
+* think how to implement components in subdirectories (i.e. input/Impl1 with namespaces Input::Impl1).
+* think about support for precompiled headers.
+* add support for assertion's testing.
+* write troubleshooting faq for beginners.
+* consider adding automatic resource loading to program: objcopy -I binary -O elf32-i386 asdf.txt asdf.o --alt-machine-code=3 --redefine-sym=_binary_asdf_txt_start=content_of_asdf extern const char content_of_asdf[];.
+* add support for separating tests that last longer (*.lt.cpp?).
+* refactor code so that flags passed to make can be only in form yes/no.
+* add support for code coverage with bcov - enable code coverage only for selected piece of code.
+* add build target creating documentation for whole project in one place (alldoc?).
+* add error handling when *_dynamic_* script fail.
+* make dependencies computation on demand (i.e. when required component is to be build; not for all by default, since not all components may be required to be build).
+* make new type of libraries: static+dynamic (i.e. both are build); useful in some systems.
+* add static-app linkage - application will have everything linked in statically.
+* add SECURITIES variable, that enables extra flags that makes program harder to hack; they usually mean slower code, thus cannot be simply enabled by default in release. options for start are: -fstack-protector-all -fpie -pie.
+* add Jam build support (jam -s PREFIX=/a/b/c).
+* rework component depndencies so that they'll be generated with regular make's rules instead of current voodoo.
+* add support for google test framework.
+* add support for test-elements, related to given component, so that they can be in one place.
+* add build_config/config_final.mk, include as a last one in project's Makefile (when all includes ared already expanded).
+* add option to build only separate element of the library (ex. one file), for quick testing highly-templated code.
+* add simple makefile that builds all of the files into the separate executables (usefull for trivial examples and similar "nano projects").
+* implement runtime-selectable static/dynamic libraries type (with option for selecting s/d as a default type, with exceptions for choosen components).

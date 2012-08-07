@@ -1,0 +1,2 @@
+#!/bin/sh
+exec echo -DLIB1_TEST_ONLY__LOCAL_FLAG

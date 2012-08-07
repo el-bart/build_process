@@ -1,0 +1,152 @@
+-- v?? --
+* small projects build process now keeps dependencies with system headers as well.
+
+-- v2.1.0 --
+* updated repository link.
+* added detection for cycles when generating dependencies for the components. error is displayed on the screen.
+* fixed missing -fPIC for C-sources, when building shared library.
+* added script for dependency graphical visualization (build_process/misc/mk_deps_graph).
+* fixed issue with missing 'bits/predefs.h' header for icc and clang (machine-dependent includes dir is no win path explicitly).
+* updated error display when using old ICC with ccache.
+* updated error display when using old ICC with new GCC libs.
+
+-- v2.0.2 --
+* fixed display of problem, when compiling with icc and gcc 4.5 libs.
+
+-- v2.0.1 --
+* added check for GCC-4.5 when using ICC - it does not compile, but can fallback to gcc-4.4 when present.
+* fixed issue with no warning when build process changed.
+
+-- v2.0.0 --
+* added clang toolchain support.
+* new, more general format of toolchains selection mechanism.
+* dependencies now include system headers.
+* since icc 12.0.0 is fixed and works fine with ccache, warning is displayed only if older version is detected.
+* gcc toolchain is now 'gcc' (name 'local' is deprecated form now on - proper warning is shown, when used).
+* small-projects-makefile now supports mtest target as well.
+
+-- v1.7.1 --
+* fixed issue with not re-running pre_configure.dep target when re-building component after a change.
+* added host-specific optimization flags for gcc and icc compilers.
+
+-- v1.7.0 --
+* build mode is now present in build directories in gen, to distinguish those builds.
+* added 'features' to allows build of special parts of code on demand (i.e. turn them on/off) by specifying which files should build).
+* automatic link with last 'features' set build with a short name (compatible with previous releases).
+* libraries that have only headers changed are not relinked now (no need to do so).
+* fixed problem when 'clean' target built components' dependencies first and then removed them.
+* fixed problem with passing flags to make, like '-k'.
+* build process now checks if all required features do exist in at least one component.
+* sources now rebuild when compilation flags changes (from deps).
+* binaries now re-links when link flags changes (from deps).
+
+-- v1.6.0 --
+* reorganized component dependencies backend to allow better parallelism (ex. building object files while linking dependent libraries).
+* component dependencies are now computed much faster for bigger projects.
+* auto-tools based components now obey V=1 make flag (verbose mode).
+* output form slightly improved in few places.
+* minor code fixes.
+
+-- v1.5.1 --
+* auto-tools components are now non-verbose (this prevents screen from flooding with compilation details).
+
+-- v1.5.0 --
+* added user-provided events before running configure and after running installation of auto-tools based component.
+* -Werror is not propagated to external (auto-tools-based) components, since they almost always cause problems.
+* CDEPS computation has been optimized - it's now ~4 times faster.
+* added distcc support (via WITH_DISTCC make option).
+
+-- v1.4.0 --
+* added user (project) specific link flags.
+* implemented component-mods feature.
+* added no-doxygen component mod, for disabling warnings from doxygen on certian (ex.: external) components.
+* automated support for auto-tools based external components is now available.
+
+-- v1.3.1 --
+* fixed problem with small-prjs-build when no directories where present (just files).
+
+-- v1.3.0 --
+* fixed display of available toolchains, when wrong is given.
+* intel's icc toolchain is now supported.
+* build_process now warns when using icc with ccache, which (due to icc issues) does not work properly in all cases.
+* build_config/config.mk is now checked for changes as well.
+
+-- v1.2.1 --
+* building 'doc' profile now stops when something's not/wrongly commented.
+* removed redundant libraries form linking.
+* more flags have been separated as toolchain-dependent.
+
+-- v1.2.0 --
+* added force-link functionality.
+* fixed small-projects-build-process and made it official part of build_process release.
+* added test application for small-prj-build-process.
+* added support for components build only in some profiles (ex. tests).
+* list of build-process files checked during dependency is now more readable.
+* implemented 'local flags' - compilation flags available for single component only and not passed to other components, dependent on this one.
+* 'test' and 'mtest' profiles now build their own 'debug' libraries; it is required since compilation flags for debug and (m)test may differ.
+* verbose output when computing components' dependencies.
+* flags passed to compilation are now reduced to absolute minimum.
+* fixed problem with not rebuilding when new dependency file appeared (ex. 'common' or '$profile').
+* files with the same name in C and C++ are now allowed (ex.: myfile.c and myfile.cpp).
+
+-- v1.1.2 --
+* fixed 'missing dependency header' problem.
+
+-- v1.1.1 --
+* falgs for compilation and linking of profile mode are less restrictive.
+* moved -rdynamic to linking, instead of compiling flags.
+* switched from electric-fence to duma library for memory debugging, since the first one caused problems with pthreads.
+
+-- v1.1.0 --
+* added automatic check for project's rebuilding when build_process changed.
+* fixed problem with building MEM_DEBUG=1 version to directory with "normal" version.
+* template for tut-tests has been simplified a little.
+* ccache support by setting WITH_CCACHE=1 option.
+* fixed bug when linking tests for dynamic library.
+* moved project-specific flags to the config.mk (i.e. in order to optimize builds for given hardware, etc...).
+* gen directory now has links to header files instead of copyies.
+* removing public headers and unmarking header to non-public again are now supported.
+* added parallel build to bzr_build.conf for multicore computers.
+* fixed bug with library relinking when component had common prefix with other library name.
+* test application for AVRs added.
+* out-of-the-box support for gcc toolchain for AVR uCs.
+* inter-component dependencies and flags checker has been rewritten from scratch.
+* no features/deps/* file are needed now if component depends on nothing.
+* features/deps/common_dynamic_compile and features/deps/common_dynamic_link files are now in use.
+* added description of inter-component dependencies tracking in build_process/templates/features/deps/README.txt file.
+
+-- v1.0.1 --
+* fixed bug with common dependencies/libs-links for different TC/MEM_CHECK settings.
+
+-- v1.0.0 --
+* copying ublic headers has been improved.
+* -I order has been preserved - other components won't be affected anyway.
+* all dependency files are now optional - if you don't use them, you don't need them to exist.
+* added 'common' dependency file, that is included for all profiles.
+* testdata directory is now with own dependencies - anything that changes (add/modified) is also updated in gen/.
+* change '/* public header */' to links in separate directory has been rejected due to problems with keeping two directories structures in sync in order to make it work.
+* separate gen/* directories for different build options for profiles (np: toolchain).
+* build_process tests now if proper variables are set (either via config or cmd-line parameter).
+* added -rdynamic when building in debug (this allows backtrace reading in runtime).
+* added reviesd BSD as a second license.
+* fixed bug with missing symbols for applications
+* dynamic link/compile + links in features directory.
+* tests group's template has been simplified.
+* added .out sufix to application names, to avoid problem when app has the same name as its source direcotry.
+* annoying message when dependencies have changed is now removed - deps are updated automatically.
+* toolchain selection is now possible via TC.
+* added MEM_DEBUG falg - setting it to 1 causes to link with memory debug lib electric fence.
+* moved profiles into separate files.
+* fixed typo in test group template.
+* added missing header to main.t.cpp.
+* fixed bug with loosing compile-flags for dependencies.
+* added support for dynamically generated compilation and link flags.
+* automatic tests application(s) now return code dependent on test passing/failure.
+* fixed bug with non-rebuilding test apps when inter-lib has changed.
+* fixed bug with non-rebuilding libs/apps when dependency-lib has changed.
+* support for doxygen documentation (PROFILE=doc).
+* fixed bug causing mtests to rebuild own-lib sources twice.
+* dynamic libraries support.
+* environment is prepared for dynamic library support.
+* TEST_COMPONENT flag no longer is needed.
+* reorganization of code - more common code separated.
