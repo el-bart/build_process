@@ -1,1 +1,2 @@
 * spaces in path to projects directory are not allowed.
+* small prjs build does not track dependencies for *.mt.cpp files.
