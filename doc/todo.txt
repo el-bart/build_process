@@ -1,9 +1,10 @@
+build_process:
+--------------
 * add support for non-compilable-tests (piece of code, that should NOT compile) - .nct.cpp.
 * add doc file with description to project too (not only on web).
 * add parameter that forces component to rebuild.
 * think how to implement components in subdirectories (i.e. input/Impl1 with namespaces Input::Impl1).
 * think about support for precompiled headers.
-* add support for assertion's testing.
 * write troubleshooting faq for beginners.
 * consider adding automatic resource loading to program: objcopy -I binary -O elf32-i386 asdf.txt asdf.o --alt-machine-code=3 --redefine-sym=_binary_asdf_txt_start=content_of_asdf extern const char content_of_asdf[];.
 * add support for separating tests that last longer (*.lt.cpp?).
@@ -21,5 +22,12 @@
 * add support for test-elements, related to given component, so that they can be in one place.
 * add build_config/config_final.mk, include as a last one in project's Makefile (when all includes ared already expanded).
 * add option to build only separate element of the library (ex. one file), for quick testing highly-templated code.
-* add simple makefile that builds all of the files into the separate executables (usefull for trivial examples and similar "nano projects").
 * implement runtime-selectable static/dynamic libraries type (with option for selecting s/d as a default type, with exceptions for choosen components).
+
+small_prj_build_process:
+------------------------
+* implement 'doc' target for the small_prj_build_process.
+
+misc:
+-----
+* add simple makefile that builds all of the files into the separate executables (usefull for trivial examples and similar "nano projects").
