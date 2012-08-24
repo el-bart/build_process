@@ -74,6 +74,12 @@ for t in debug release profile test
 do
   echo
   echo "BUILDING WITH SMALL PROJECTS BUILD PROCESS: $t"
+  echo "test_app:"
   ( cd small_prj_build_process/test_app  && make "$t" "-j$CPUS" ) || exit $?
-  ( cd small_prj_build_process/test_app2 && make "$t" "-j$CPUS" ) || exit $?
+  for tc in gcc avr
+  do
+    [ "$tc" = "avr" ] && [ "$t" = "test" ] && continue
+    echo "test_app2:"
+    ( cd small_prj_build_process/test_app2 && make "TC=$tc" "$t" "-j$CPUS" ) || exit $?
+  done
 done # for targets
