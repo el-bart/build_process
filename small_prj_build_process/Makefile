@@ -179,6 +179,15 @@ $(PROGRAM_NAME): $(CXXOBJS) $(COBJS)
 $(SRCDIR)/Makefile: $(SRCDIR)/config.mk
 	touch "$@"
 
+# ignore missing dependency headers (required when header is deleted/renamed)
+%.h: FORCE
+	@true
+%.hpp: FORCE
+	@true
+
+# forces rebuilding, if needed
+.PHONY: FORCE
+FORCE:
 
 # has C sources?
 -include $(CDEPS)
