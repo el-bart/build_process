@@ -1,4 +1,5 @@
 gen
 bzr_team.conf
 .*.swp
+.*.kate-swp
 *.orig
