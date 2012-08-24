@@ -1,3 +1,7 @@
+-- v2.2.1 --
+* small_prj_build: fixed missing dependency error when header is (re)moved.
+* small_prj_build: fixed missing dependency for mtest main object files.
+
 -- v2.2.0 --
 * small projects build process now keeps dependencies with system headers as well.
 
