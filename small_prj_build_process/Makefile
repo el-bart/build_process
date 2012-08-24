@@ -154,15 +154,15 @@ mtest: $(CMTESTOUTS) $(CXXMTESTOUTS)
 
 $(TEST_PROGRAM_NAME): $(CXXTESTOBJS) $(CTESTOBJS) $(CXXOBJS_NOMAIN) $(COBJS_NOMAIN)
 	echo "LD  $@"
-	$(LD) $(LDFLAGS) -o $@ $^
+	$(LD) -o $@ $^ $(LDFLAGS)
 
 %.out: $(CXXOBJS_NOMAIN) $(COBJS_NOMAIN) %.o
 	echo "LD  $@"
-	$(LD) $(LDFLAGS) -o $@ $^
+	$(LD) -o $@ $^ $(LDFLAGS)
 
 $(PROGRAM_NAME): $(CXXOBJS) $(COBJS)
 	echo "LD  $@"
-	$(LD) $(LDFLAGS) -o $@ $^
+	$(LD) -o $@ $^ $(LDFLAGS)
 
 # C++ source files:
 %.o: %.cpp $(SRCDIR)/Makefile

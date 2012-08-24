@@ -1,2 +1,1 @@
 * spaces in path to projects directory are not allowed.
-* small prjs build includes link flags beofre objects - should be other way around.
