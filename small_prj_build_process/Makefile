@@ -139,8 +139,8 @@ CMTESTOUTS  +=$(CMTESTSRCS:.c=.out)
 CXXMTESTOUTS+=$(CXXMTESTSRCS:.cpp=.out)
 
 # dep files:
-CDEPS  +=$(CSRCS:.c=.d)     $(CTESTSRCS:.c=.d)
-CXXDEPS+=$(CXXSRCS:.cpp=.d) $(CXXTESTSRCS:.cpp=.d)
+CDEPS  +=$(CSRCS:.c=.d)     $(CTESTSRCS:.c=.d)     $(CMTESTSRCS:.c=.d)
+CXXDEPS+=$(CXXSRCS:.cpp=.d) $(CXXTESTSRCS:.cpp=.d) $(CXXMTESTSRCS:.cpp=.d)
 
 
 .PHONY: all
