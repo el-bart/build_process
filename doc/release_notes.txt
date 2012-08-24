@@ -1,3 +1,6 @@
+-- ?? --
+* small_prj_build: added support to symlinks to code directories and files (i.e. dereference).
+
 -- v2.3.0 --
 * small_prj_build: implemented 'gcc' (i.e. local) and 'avr' toolchain support.
 * small_prj_build: minor code cleanup.
