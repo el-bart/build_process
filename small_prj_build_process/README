@@ -6,12 +6,11 @@ full-featured build system is not required. it provides
 basic functionalities like dependency tracking and
 automated tests support.
 
-to use it all you have to do is copy Makefile to your
-directory structure and type 'make <target_name>'.
+to use it all you have to do is copy Makefile and config.mk
+files to your directory structure and type 'make <target_name>'.
 typical layout looks like this:
 
 my_prj:
-  Makefile
   CodePart1:
     src1.c
     src1.h
@@ -20,19 +19,25 @@ my_prj:
     src2.cpp
     src2.hpp
     src2.t.cpp
+  Makefile
+  config.mk
   src3.cpp
   src3.hpp
   src3.t.cpp
   main.cpp
+  main.t.cpp
 
 makefile will automatically generate 'gen' output directory
 for build results. this is the only place where outputs are
 stored, therefor removing it makes your distribution
 object-files-clean.
 
-available targets are: debug, release, profile. note that
-this differs from full-featured build_process, where these
-are PROFILE's variable values, while targets are component
+available targets are: debug, release, profile, test, mtest.
+*.t.cpp files are automated test files (target 'test') while
+*.mt.cpp are manual tests (target 'mtest').
+
+note that this differs from full-featured build_process, where
+these are PROFILE's variable values, while targets are component
 names. here it is simplified, since there are no other
 components than the application you're building.
 
