@@ -1,4 +1,5 @@
--- ?? --
+-- v2.3.1 --
+* small_prj_build: fuses are not programmed now, by default.
 * small_prj_build: added support to symlinks to code directories and files (i.e. dereference).
 * small_prj_build: warnings are threat as errors in release mode now.
 

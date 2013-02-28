@@ -20,4 +20,4 @@ without need for cleaning anything.
 author:  bartek szurgot
 www:     http://www.baszerr.eu/doku.php/prjs/build_process/build_process
 license: revised BSD
-version: 2.3.0
+version: 2.3.1
