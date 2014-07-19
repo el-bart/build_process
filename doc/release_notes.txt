@@ -1,3 +1,6 @@
+-- v2.5.0 --
+* added nano build system.
+
 -- v2.4.0 --
 * added trivial build system.
 

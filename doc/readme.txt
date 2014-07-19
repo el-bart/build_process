@@ -15,6 +15,9 @@ is fine).
 trivial build, for one-directory projects, consisting of just a few files, with no tests, etc...
 this is the simples one can get, without a need to write anything. ;)
 
+nano build compiles each source, in a currect directory into a separate application. useful for
+creating small test sources, helpers, proof-of-concepts and side projects.
+
 both build systems generate all output and temporary files inside gen/ directory. this makes it
 easy to clean and maintain. additionally each setup for build is generated inside separate
 sub-directory within gen/, making it possible to build ex. debug and release independently,
@@ -23,4 +26,4 @@ without need for cleaning anything.
 author:  bartek szurgot
 www:     http://www.baszerr.eu/doku.php/prjs/build_process/build_process
 license: revised BSD
-version: 2.4.0
+version: 2.5.0
