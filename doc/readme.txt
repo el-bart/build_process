@@ -1,6 +1,10 @@
 build process
 =============
 
+ABANDONED PROJECT.
+JUST USE CMAKE... ;)
+
+
 this package is a build process for C++ and C.
 
 full-featured build is located in build_process/ directory. it is able to build static and dynamic
